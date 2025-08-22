@@ -322,10 +322,10 @@ async function updateCartCount() {
                     element.textContent = count;
                 });
                 
-                // Показываем/скрываем плавающую кнопку
+                // Показываем плавающую кнопку всегда
                 const floatingCart = document.querySelector('.floating-cart');
                 if (floatingCart) {
-                    floatingCart.style.display = count > 0 ? 'flex' : 'none';
+                    floatingCart.style.display = 'flex';
                 }
                 
                 // Обновляем главную кнопку Telegram
@@ -345,10 +345,10 @@ async function updateCartCount() {
                     element.textContent = '0';
                 });
                 
-                // Скрываем плавающую кнопку
+                // Показываем плавающую кнопку всегда
                 const floatingCart = document.querySelector('.floating-cart');
                 if (floatingCart) {
-                    floatingCart.style.display = 'none';
+                    floatingCart.style.display = 'flex';
                 }
                 
                 // Скрываем главную кнопку Telegram

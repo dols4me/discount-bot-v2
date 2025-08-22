@@ -1091,17 +1091,17 @@ body {
 
 /* Плавающая кнопка корзины в стиле FASHION FABRIQUE */
 .floating-cart {
-    position: fixed;
-    bottom: 24px;
-    right: 20px;
-    z-index: 100;
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 20px !important;
+    z-index: 9999 !important;
     border-radius: 50px;
     background-color: #1a1a1a;
     padding: 16px 20px;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
     width: auto;
     height: auto;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     gap: 8px;
@@ -1114,6 +1114,9 @@ body {
     -webkit-tap-highlight-color: transparent;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
+    pointer-events: auto;
+    visibility: visible !important;
+    opacity: 1 !important;
 }
 
 .floating-cart:hover {
