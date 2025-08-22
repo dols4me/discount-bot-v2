@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Магазин - Каталог</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Заголовок -->
+        <header class="catalog-header">
+            <div class="header-content">
+                <div class="logo-section">
+                    <img src="/static/images/logo.svg" alt="W4STORE" class="logo">
+                </div>
+                <div class="header-actions">
+                    <div class="cart-icon" onclick="openCart()">
+                        🛒 <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Поиск и фильтры в стиле FASHION FABRIQUE -->
+        <div class="search-section">
+            <div class="search-container">
+                            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="search-input" placeholder="Поиск товаров..." oninput="filterProducts()" onkeydown="if(event.key==='Enter') filterProducts()">
+                <button type="button" id="clear-search" onclick="clearSearch()" style="display: none;">✕</button>
+            </div>
+            </div>
+            <div class="category-dropdown">
+                <button class="category-dropdown-btn" onclick="toggleCategoryDropdown()">
+                    <span class="hamburger-icon">☰</span>
+                    <span class="dropdown-text">Категории</span>
+                </button>
+                <div class="category-dropdown-content" id="categoryDropdown">
+                    <div class="category-item active" onclick="filterByCategory('all')">Все товары</div>
+                    <!-- Категории будут загружены динамически -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Каталог товаров в стиле FASHION FABRIQUE -->
+        <div class="products-container">
+            <h2 class="section-title">Все товары ({{ products|selectattr('stock', 'gt', 0)|list|length }})</h2>
+            <div class="products-grid" id="products-grid">
+                {% for product in products %}
+                    {% if product.stock > 0 %}
+                <div class="product-card" data-category="{{ product.category }}" data-product-id="{{ product.id }}">
+                    <!-- Кликабельная картинка товара -->
+                                            <div class="product-image-container" onclick="viewProduct('{{ product.original_id }}')">
+                            {% if product.image %}
+                            <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="product-image-placeholder" style="display: none;">
+                                <span class="image-placeholder-text">📷</span>
+                            </div>
+                            {% else %}
+                            <div class="product-image-placeholder">
+                                <span class="image-placeholder-text">📷</span>
+                            </div>
+                            {% endif %}
+                        </div>
+                    
+                    <!-- Упрощенная информация о товаре -->
+                    <div class="product-info-simple">
+                        <div class="product-price">₽{{ product.price }}</div>
+                        <div class="product-name">{{ product.name }}</div>
+                        <div class="product-color">{{ product.description|default('Цвет не указан') }}</div>
+                    </div>
+                </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Пустой каталог -->
+        <div class="empty-catalog" id="empty-catalog" style="display: none;">
+            <div class="empty-icon">📭</div>
+            <h3>Товары не найдены</h3>
+            <p>Попробуйте изменить поисковый запрос или фильтры</p>
+        </div>
+
+        <!-- Плавающая кнопка корзины -->
+        <div class="floating-cart" onclick="openCart()">
+            🛒 <span id="floating-cart-count">0</span>
+        </div>
+    </div>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🛒 Корзина</h2>
+                <button class="close-btn" onclick="closeCart()">&times;</button>
+            </div>
+            <div class="modal-body" id="cart-content">
+                <!-- Содержимое корзины будет загружено динамически -->
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js"></script>
+    <script>
+        // Инициализация Telegram WebApp
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            tg.ready();
+            tg.expand();
+            
+            // Получаем ID пользователя из Telegram
+            window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
+            
+            // Настраиваем главную кнопку
+            tg.MainButton.text = 'Перейти в корзину';
+            tg.MainButton.onClick(() => openCart());
+        }
+
+        // Переменные для бесконечной прокрутки
+        let currentOffset = 0; // Начинаем с 0, так как загружаем все товары сразу
+        let isLoading = false;
+        let hasMore = false; // Нет необходимости в дополнительной загрузке
+        let currentCategory = 'all'; // Текущая выбранная категория
+        
+        // Загружаем корзину при загрузке страницы
+        document.addEventListener('DOMContentLoaded', () => {
+            updateCartCount();
+            setupInfiniteScroll();
+            loadCategories(); // Загружаем категории
+            loadAllProducts(); // Загружаем все товары сразу
+        });
+        
+        // Функция для переключения выпадающего списка
+        function toggleCategoryDropdown() {
+            const dropdown = document.getElementById('categoryDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Закрытие выпадающего списка при клике вне его
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('categoryDropdown');
+            const dropdownBtn = document.querySelector('.category-dropdown-btn');
+            
+            if (!dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Загрузка категорий из API
+        async function loadCategories() {
+            try {
+                const response = await fetch('/api/categories-with-products');
+                const data = await response.json();
+                
+                const dropdown = document.getElementById('categoryDropdown');
+                const categories = data.categories || [];
+                
+                // Очищаем существующие категории (кроме "Все товары")
+                const allItems = dropdown.querySelectorAll('.category-item:not(:first-child)');
+                allItems.forEach(item => item.remove());
+                
+                // Добавляем категории из API с количеством товаров
+                categories.forEach(category => {
+                    const categoryItem = document.createElement('div');
+                    categoryItem.className = 'category-item';
+                    categoryItem.textContent = `${category.name} (${category.product_count})`;
+                    categoryItem.onclick = () => filterByCategory(category.name);
+                    dropdown.appendChild(categoryItem);
+                });
+                
+                console.log(`✅ Загружено ${categories.length} категорий с товарами`);
+            } catch (error) {
+                console.error('❌ Ошибка загрузки категорий:', error);
+            }
+        }
+
+        // Функция фильтрации по категориям
+        function filterByCategory(category) {
+            console.log('Фильтрация по категории:', category);
+            
+            // Закрываем выпадающий список
+            document.getElementById('categoryDropdown').classList.remove('show');
+            
+            // Убираем активный класс со всех элементов
+            document.querySelectorAll('.category-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Добавляем активный класс к выбранному элементу
+            event.target.classList.add('active');
+            
+            // Обновляем текст кнопки
+            const dropdownText = document.querySelector('.dropdown-text');
+            if (category === 'all') {
+                dropdownText.textContent = 'Категории';
+                currentCategory = 'all';
+            } else {
+                dropdownText.textContent = category;
+                currentCategory = category;
+            }
+            
+            // Сбрасываем состояние бесконечной прокрутки
+            currentOffset = 0;
+            hasMore = true;
+            
+            // Очищаем сетку товаров
+            const productsGrid = document.getElementById('products-grid');
+            productsGrid.innerHTML = '';
+            
+            // Загружаем товары для выбранной категории
+            loadMoreProducts();
+        }
+        
+        // Настройка бесконечной прокрутки (временно отключена)
+        function setupInfiniteScroll() {
+            // Временно отключено
+            /*
+            window.addEventListener('scroll', () => {
+                if (isLoading || !hasMore) return;
+                
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // Загружаем больше товаров когда пользователь приближается к концу страницы
+                if (scrollTop + windowHeight >= documentHeight - 500) {
+                    loadMoreProducts();
+                }
+            });
+            */
+        }
+        
+                        // Загрузка всех товаров сразу
+        async function loadAllProducts() {
+            if (isLoading) return;
+            
+            console.log('Загружаем все товары...');
+            isLoading = true;
+            
+            try {
+                // Загружаем все товары сразу
+                const response = await fetch('/api/products?limit=1000&offset=0');
+                const data = await response.json();
+                
+                if (data.products && data.products.length > 0) {
+                    // Очищаем сетку товаров
+                    const productsGrid = document.getElementById('products-grid');
+                    productsGrid.innerHTML = '';
+                    
+                    // Добавляем все товары в сетку
+                    data.products.forEach(product => {
+                        // Показываем только товары с остатками
+                        if (product.stock > 0) {
+                            const productCard = createProductCard(product);
+                            productsGrid.appendChild(productCard);
+                        }
+                    });
+                    
+                    console.log(`✅ Загружено ${data.products.length} товаров`);
+                    
+                    // Обновляем счетчик товаров
+                    const title = document.querySelector('.section-title');
+                    if (title) {
+                        const currentCount = document.querySelectorAll('.product-card').length;
+                        title.textContent = `Все товары (${currentCount})`;
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки товаров:', error);
+            } finally {
+                isLoading = false;
+            }
+        }
+
+                // Загрузка дополнительных товаров (для фильтрации по категориям)
+        async function loadMoreProducts() {
+            if (isLoading || !hasMore) return;
+            
+            console.log(`Загружаем товары: offset=${currentOffset}, category=${currentCategory}, isLoading=${isLoading}, hasMore=${hasMore}`);
+            isLoading = true;
+            
+            try {
+                // Загружаем все товары и фильтруем по категории
+                const response = await fetch('/api/products?limit=1000&offset=0');
+                const data = await response.json();
+                
+                if (data.products && data.products.length > 0) {
+                    // Очищаем сетку товаров
+                    const productsGrid = document.getElementById('products-grid');
+                    productsGrid.innerHTML = '';
+                    
+                    let filteredCount = 0;
+                    
+                    data.products.forEach(product => {
+                        // Показываем только товары с остатками
+                        if (product.stock > 0) {
+                            // Фильтруем по категории если выбрана
+                            if (currentCategory === 'all' || 
+                                product.category === currentCategory) {
+                                const productCard = createProductCard(product);
+                                productsGrid.appendChild(productCard);
+                                filteredCount++;
+                            }
+                        }
+                    });
+                    
+                    console.log(`✅ Отфильтровано ${filteredCount} товаров для категории "${currentCategory}"`);
+                    
+                    // Обновляем счетчик товаров
+                    const title = document.querySelector('.section-title');
+                    if (title) {
+                        const categoryText = currentCategory === 'all' ? 'Все товары' : `Товары категории "${currentCategory}"`;
+                        title.textContent = `${categoryText} (${filteredCount})`;
+                    }
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки товаров:', error);
+            } finally {
+                isLoading = false;
+            }
+        }
+        
+        // Создание карточки товара
+        function createProductCard(product) {
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            card.setAttribute('data-category', product.category || '');
+            card.setAttribute('data-product-id', product.id || '');
+            
+            const imageHtml = product.image 
+                ? `<img src="${product.image}" alt="${product.name}" class="product-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">`
+                : '';
+            
+            const placeholderHtml = `<div class="product-image-placeholder" style="display: ${product.image ? 'none' : 'flex'};">📷</div>`;
+            
+            card.innerHTML = `
+                <div class="product-image-container" onclick="viewProduct('${product.original_id || product.id}')">
+                    ${imageHtml}
+                    ${placeholderHtml}
+                </div>
+                <div class="product-info-simple">
+                    <div class="product-price">₽${product.price}</div>
+                    <div class="product-name">${product.name}</div>
+                    <div class="product-color">${product.description || 'Цвет не указан'}</div>
+                    <div class="product-article">Арт: ${product.article || 'Не указан'}</div>
+                </div>
+            `;
+            
+            return card;
+        }
+    </script>
+</body>
+</html>

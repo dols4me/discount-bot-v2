@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - {{ shop_name }}</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="cart-page">
+        <!-- Заголовок корзины -->
+        <header class="cart-header">
+            <div class="header-content">
+                <button class="back-button" onclick="goBack()">←</button>
+                <div class="logo-section">
+                    <img src="/static/images/logo.svg" alt="W4STORE" class="logo-small">
+                </div>
+                <h1 class="cart-title">Корзина</h1>
+            </div>
+        </header>
+
+        <!-- Содержимое корзины -->
+        <div class="cart-content">
+            {% if cart_items %}
+                <!-- Товары в корзине -->
+                <div class="cart-items">
+                    {% for item in cart_items %}
+                    <div class="cart-item" data-product-id="{{ item.product_id }}">
+                                                    <!-- Изображение товара -->
+                            <div class="cart-item-image">
+                                {% if item.image %}
+                                <img src="{{ item.image }}" alt="{{ item.name }}" class="cart-item-image-real" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                <div class="cart-item-image-placeholder" style="display: none;">📷</div>
+                                {% else %}
+                                <div class="cart-item-image-placeholder">📷</div>
+                                {% endif %}
+                            </div>
+                        
+                        <!-- Информация о товаре -->
+                        <div class="cart-item-info">
+                            <h3 class="cart-item-name">{{ item.name }}</h3>
+                            <div class="cart-item-details">
+                                <div class="cart-item-price">{{ "{:,.0f}".format(item.price) }} {{ currency }}</div>
+                                <div class="cart-item-quantity">Количество: {{ item.quantity }}</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Управление удалением -->
+                        <div class="cart-item-controls">
+                            <!-- Общая стоимость товара -->
+                            <div class="cart-item-total">
+                                {{ "{:,.0f}".format(item.price * item.quantity) }} {{ currency }}
+                            </div>
+                            
+                            <!-- Кнопка удаления -->
+                            <button class="remove-btn" onclick="removeFromCart('{{ item.product_id }}')" title="Удалить">
+                                🗑️
+                            </button>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Итоговая сумма -->
+                <div class="cart-summary">
+                    <div class="summary-row">
+                        <span>Товары ({{ cart_items|length }} шт.)</span>
+                        <span>{{ "{:,.0f}".format(total) }} {{ currency }}</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Доставка</span>
+                        <span>Бесплатно</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Итого к оплате</span>
+                        <span id="cart-total">{{ "{:,.0f}".format(total) }} {{ currency }}</span>
+                    </div>
+                </div>
+
+            {% else %}
+                <!-- Пустая корзина -->
+                <div class="empty-cart">
+                    <div class="empty-cart-icon">🛒</div>
+                    <h2>Корзина пуста</h2>
+                    <p>Добавьте товары из каталога, чтобы оформить заказ</p>
+                    <button class="continue-shopping-btn" onclick="goToCatalog()">
+                        🛍️ Перейти к покупкам
+                    </button>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Фиксированные кнопки внизу (только если есть товары) -->
+        {% if cart_items %}
+        <div class="cart-bottom-actions">
+            <button class="cart-action-btn clear-cart-btn" onclick="clearCart()">
+                🗑️ Очистить
+            </button>
+            <button class="cart-action-btn checkout-btn" onclick="checkout()">
+                💳 Оформить заказ
+            </button>
+        </div>
+        {% endif %}
+    </div>
+
+    <script src="/static/js/app.js"></script>
+    <script>
+        // Инициализация Telegram WebApp
+        if (window.Telegram && window.Telegram.WebApp) {
+            const tg = window.Telegram.WebApp;
+            tg.ready();
+            tg.expand();
+            
+            window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
+            
+            {% if cart_items %}
+            // Настраиваем главную кнопку для оформления заказа
+            tg.MainButton.text = 'Оформить заказ ({{ "{:,.0f}".format(total) }} {{ currency }})';
+            tg.MainButton.show();
+            tg.MainButton.onClick(() => checkout());
+            {% endif %}
+        }
+
+
+
+        function removeFromCart(productId) {
+            if (confirm('Удалить товар из корзины?')) {
+                console.log('Removing from cart:', productId);
+                
+                // Отправляем запрос на удаление товара
+                fetch('/api/remove-from-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user_id: 'demo_user',
+                        product_id: productId
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Ошибка удаления товара: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка удаления товара');
+                });
+            }
+        }
+
+        function clearCart() {
+            if (confirm('Вы уверены, что хотите очистить корзину?')) {
+                console.log('Clearing cart');
+                
+                // Отправляем запрос на очистку корзины
+                fetch('/api/clear-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        user_id: 'demo_user'
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        location.reload();
+                    } else {
+                        alert('Ошибка очистки корзины: ' + data.message);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Ошибка очистки корзины');
+                });
+            }
+        }
+
+        function checkout() {
+            // Здесь будет логика оформления заказа
+            alert('Функция оформления заказа будет добавлена позже');
+        }
+
+        function goToCatalog() {
+            window.location.href = '/';
+        }
+
+        function goBack() {
+            goToCatalog();
+        }
+    </script>
+</body>
+</html>

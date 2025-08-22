@@ -1,0 +1,1 @@
+{"errors":[{"error":"Неверное значение заголовка 'Accept'. Поддерживается только значение 'application/json;charset=utf-8'","code":1062,"moreInfo":"https://dev.moysklad.ru/doc/api/remap/1.2/#error_1062"}]}

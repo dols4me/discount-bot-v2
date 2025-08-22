@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.name }} - Мой Магазин</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+    <style>
+        :root {
+            --backgroundSecondary: #f8f9fa;
+            --backgroundBottomBar: #ffffff;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666666;
+            --buttonBgPrimary: #007bff;
+            --buttonBgPrimaryAccented: #0056b3;
+            --iconPrimary: #dc3545;
+            --icon-on-color-enabled: #ffffff;
+        }
+
+        .ProductPage {
+            background: var(--backgroundSecondary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sectionContainer {
+            position: relative;
+        }
+
+        .PDPImageSwiper {
+            width: 100%;
+            height: 400px;
+            background: #fff;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .swiper-pagination {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .swiper-pagination-bullet {
+            width: 8px;
+            height: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            margin: 0 4px;
+            cursor: pointer;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #007bff;
+        }
+
+        .share {
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ProductPage_container {
+            background: #fff;
+            padding: 20px;
+            margin: 0 16px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .PDPAttributeContainer {
+            margin-top: -20px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .attribute-group {
+            margin-bottom: 20px;
+        }
+
+        .attribute-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .attribute-value {
+            font-size: 16px;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .attribute-options {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .option-button {
+            padding: 8px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: #fff;
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .option-button:hover {
+            border-color: #007bff;
+        }
+
+        .option-button.selected {
+            border-color: #007bff;
+            background: #007bff;
+            color: #fff;
+        }
+
+        .option-button.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            text-decoration: line-through;
+        }
+
+        .product-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            line-height: 1.4;
+        }
+
+        .product-price {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+        }
+
+        .description-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .description-content {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: #007bff;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 8px;
+        }
+
+        .support-section {
+            text-align: center;
+        }
+
+        .support-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .support-button {
+            background: #6c757d;
+            color: #fff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .bottomButtonWrapper_tdesktop {
+            background: var(--backgroundBottomBar);
+            padding: 16px;
+            border-top: 1px solid #e0e0e0;
+            position: sticky;
+            bottom: 0;
+        }
+
+        .add-to-cart-button {
+            background: var(--buttonBgPrimary);
+            color: #fff;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s ease;
+        }
+
+        .add-to-cart-button:hover {
+            background: var(--buttonBgPrimaryAccented);
+        }
+
+        .add-to-cart-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .cart-icon {
+            position: absolute;
+            right: 16px;
+            bottom: 80px;
+            width: 48px;
+            height: 48px;
+            background: var(--buttonBgPrimaryAccented);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            z-index: 30;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: var(--iconPrimary);
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        .success-message {
+            color: #28a745;
+            font-size: 14px;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .PDPImageSwiper {
+                height: 300px;
+            }
+            
+            .ProductPage_container {
+                margin: 0 12px;
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="h-full relative">
+        <div class="ProductPage flex flex-col bg-backgroundSecondary h-full">
+            <div class="flex flex-col grow overflow-auto gap-5">
+                
+                <!-- Галерея изображений -->
+                <div class="relative sectionContainer">
+                    <div class="swiper swiper-initialized swiper-horizontal PDPImageSwiper relative">
+                        <div class="swiper-wrapper">
+                            {% if product.image %}
+                            <div class="swiper-slide swiper-slide-active">
+                                <img class="object-contain w-full h-full" loading="lazy" src="{{ product.image }}" alt="{{ product.name }}">
+                            </div>
+                            {% else %}
+                            <div class="swiper-slide swiper-slide-active">
+                                <div class="product-image-placeholder">📷</div>
+                            </div>
+                            {% endif %}
+                        </div>
+                        <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal">
+                            <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
+                        </div>
+                        <button class="share" onclick="shareProduct()">
+                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 4.4932C13 4.05265 13.5289 3.82775 13.8467 4.13285L20.624 10.6397C20.8287 10.8365 20.8289 11.1637 20.624 11.3604L13.8467 17.8672C13.529 18.1719 13.0004 17.947 13 17.5069V14C7.02671 13 4 18 4 18C4 12.4772 7.47715 8.00003 13 8.00003V4.4932Z" fill="white"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Атрибуты товара -->
+                <div class="flex flex-col ProductPage_container gap-4 PDPAttributeContainer">
+                    
+                    <!-- Выбор цвета -->
+                    <div class="flex flex-col gap-2">
+                        <span class="attribute-label">Цвет: <span class="attribute-value" id="selected-color">Выберите цвет</span></span>
+                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="color-options">
+                            {% if product.available_colors %}
+                                {% for color in product.available_colors %}
+                                <button class="option-button color-option" data-color="{{ color }}" onclick="selectColor('{{ color }}')">
+                                    {{ color }}
+                                </button>
+                                {% endfor %}
+                            {% else %}
+                                <span class="text-gray-500">Цвет не указан</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Выбор размера -->
+                    <div class="flex flex-col gap-2">
+                        <span class="attribute-label">Размер: <span class="attribute-value" id="selected-size">Выберите размер</span></span>
+                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="size-options">
+                            {% if product.available_sizes %}
+                                {% for size in product.available_sizes %}
+                                <button class="option-button size-option" data-size="{{ size }}" onclick="selectSize('{{ size }}')">
+                                    {{ size }}
+                                </button>
+                                {% endfor %}
+                            {% else %}
+                                <span class="text-gray-500">Размер не указан</span>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Описание товара -->
+                <div class="flex flex-col gap-4 ProductPage_container Description">
+                    <div class="flex flex-col gap-2">
+                        <span class="product-title">{{ product.name }}</span>
+                        <div class="flex flex-row gap-2 items-baseline">
+                            <span class="product-price">{{ "%.0f"|format(product.price) }} ₽</span>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col gap-2">
+                        <span class="description-title">Описание товара</span>
+                        <div>
+                            <div class="description-content">
+                                <span>Арт. {{ product.article or 'Не указан' }}</span>
+                                <div>
+                                    <p>{{ product.description or 'Описание товара отсутствует' }}</p>
+                                    {% if product.modifications %}
+                                    <p><strong>Доступные варианты:</strong></p>
+                                    <ul>
+                                        {% for mod, stock in product.modifications.items() %}
+                                        <li>{{ mod }} - {{ stock }} шт.</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex flex-row gap-1 cursor-pointer read-more" onclick="toggleDescription()">
+                            <span>Читать дальше</span>
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" fill="var(--text-secondary)" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M2.29289 5.28989C2.68342 4.89937 3.31658 4.89937 3.70711 5.28989L8 9.58279L12.2929 5.28989C12.6834 5.68042 14.0976 6.31358 13.7071 6.70411L8.70711 11.7041C8.31658 12.0946 7.68342 12.0946 7.29289 11.7041L2.29289 6.70411C1.90237 6.31358 1.90237 5.68042 2.29289 5.28989Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Поддержка -->
+                <div class="flex flex-col gap-4 ProductPage_container support-section">
+                    <span class="support-title">Остались вопросы?</span>
+                    <button class="support-button" onclick="contactSupport()">Написать в поддержку</button>
+                </div>
+
+            </div>
+
+            <!-- Нижняя панель с кнопкой корзины -->
+            <div class="bg-backgroundBottomBar">
+                <div class="ProductPage_bottomButtonWrapper bottomButtonWrapper_tdesktop">
+                    <div class="flex gap-4 h-full">
+                        <button class="add-to-cart-button" id="add-to-cart-btn" onclick="addToCart()" disabled>
+                            Добавить в корзину
+                        </button>
+                    </div>
+                    <a class="cart-icon" href="/cart" id="cart-icon">
+                        <div class="cart-count" id="cart-count">0</div>
+                        <svg width="24px" height="24px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.00003 6.99994C7.00006 4.23854 9.23863 2 12 2C14.7615 2 17 4.23858 17 7L17.9182 7C18.4057 6.99999 18.8233 6.99998 19.1662 7.0244C19.5247 7.04993 19.8844 7.10612 20.2332 7.26246C21.0139 7.61241 21.608 8.27901 21.8662 9.09464C21.9815 9.45903 21.9961 9.82278 21.9804 10.1819C21.9654 10.5253 21.9175 10.9402 21.8616 11.4245L21.4083 15.3553C21.2163 17.0252 21.0884 18.1369 20.6207 19.038C19.9989 20.2358 18.9584 21.1631 17.6973 21.6436C16.7486 22.005 15.6295 22.0046 13.9486 22.0039H10.0493C8.36895 22.0046 7.25025 22.005 6.30176 21.6437C5.0409 21.1635 4.00054 20.2366 3.37857 19.0393C2.91069 18.1386 2.7825 17.0273 2.58995 15.3581L2.13496 11.4259C2.07889 10.9415 2.03086 10.5265 2.0157 10.183C1.99985 9.8238 2.01432 9.45994 2.1296 9.09543C2.38761 8.27954 2.98176 7.61267 3.76258 7.26257C4.11143 7.10616 4.47121 7.04995 4.82983 7.02441C5.17283 6.99998 5.5906 6.99999 6.07825 7L7.00003 6.99994ZM12 4C10.3432 4 9.00005 5.34312 9.00003 6.99996L15 7C15 5.34315 13.6569 4 12 4ZM16.8048 12.2499C16.942 11.7149 16.6196 11.17 16.0847 11.0327C15.5497 10.8955 15.0048 11.2178 14.8675 11.7528C14.535 13.0486 13.3645 14 11.9799 14C10.5953 14 9.42476 13.0486 9.09225 11.7528C8.95498 11.2178 8.41003 10.8955 7.87508 11.0327C7.34012 11.17 7.01774 11.7149 7.15501 12.2499C7.70754 14.4031 9.65453 16 11.9799 16C14.3052 16 16.2522 14.4031 16.8048 12.2499Z" fill="white"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Инициализация Swiper
+        const swiper = new Swiper('.PDPImageSwiper', {
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Состояние выбора
+        let selectedColor = null;
+        let selectedSize = null;
+
+        // Функция выбора цвета
+        function selectColor(color) {
+            selectedColor = color;
+            
+            // Обновляем UI
+            document.getElementById('selected-color').textContent = color;
+            
+            // Обновляем кнопки
+            document.querySelectorAll('.color-option').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.dataset.color === color) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            checkCanAddToCart();
+        }
+
+        // Функция выбора размера
+        function selectSize(size) {
+            selectedSize = size;
+            
+            // Обновляем UI
+            document.getElementById('selected-size').textContent = size;
+            
+            // Обновляем кнопки
+            document.querySelectorAll('.size-option').forEach(btn => {
+                btn.classList.remove('selected');
+                if (btn.dataset.size === size) {
+                    btn.classList.add('selected');
+                }
+            });
+            
+            checkCanAddToCart();
+        }
+
+        // Проверка возможности добавления в корзину
+        function checkCanAddToCart() {
+            const addButton = document.getElementById('add-to-cart-btn');
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            let canAdd = true;
+            let message = 'Добавить в корзину';
+            
+            if (hasColors && !selectedColor) {
+                canAdd = false;
+                message = 'Выберите цвет';
+            }
+            
+            if (hasSizes && !selectedSize) {
+                canAdd = false;
+                if (hasColors && !selectedColor) {
+                    message = 'Выберите цвет и размер';
+                } else {
+                    message = 'Выберите размер';
+                }
+            }
+            
+            // Если нет ни цвета, ни размера, то товар можно добавить без выбора
+            if (!hasColors && !hasSizes) {
+                canAdd = true;
+                message = 'Добавить в корзину';
+            }
+            
+            addButton.disabled = !canAdd;
+            addButton.textContent = message;
+        }
+
+        // Добавление в корзину
+        async function addToCart() {
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            if (hasColors && !selectedColor) {
+                alert('Пожалуйста, выберите цвет');
+                return;
+            }
+            
+            if (hasSizes && !selectedSize) {
+                alert('Пожалуйста, выберите размер');
+                return;
+            }
+
+            try {
+                const response = await fetch('/api/add-to-cart', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                                    body: JSON.stringify({
+                    user_id: 'demo_user',
+                    product_id: '{{ product.original_id }}',
+                    color: selectedColor,
+                    size: selectedSize,
+                    quantity: 1
+                })
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    if (result.success) {
+                        updateCartCount(result.cart_count);
+                        showMessage('Товар добавлен в корзину!', 'success');
+                    } else {
+                        showMessage(result.message || 'Ошибка добавления в корзину', 'error');
+                    }
+                } else {
+                    showMessage('Ошибка добавления в корзину', 'error');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                showMessage('Ошибка добавления в корзину', 'error');
+            }
+        }
+
+        // Обновление счетчика корзины
+        function updateCartCount(count) {
+            document.getElementById('cart-count').textContent = count;
+        }
+
+        // Показать сообщение
+        function showMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'success' ? 'success-message' : 'error-message';
+            messageDiv.textContent = message;
+            
+            const addButton = document.getElementById('add-to-cart-btn');
+            addButton.parentNode.insertBefore(messageDiv, addButton.nextSibling);
+            
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        }
+
+        // Функции для кнопок
+        function shareProduct() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '{{ product.name }}',
+                    text: 'Посмотрите этот товар!',
+                    url: window.location.href
+                });
+            } else {
+                // Fallback для браузеров без поддержки Web Share API
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    alert('Ссылка скопирована в буфер обмена!');
+                });
+            }
+        }
+
+        function contactSupport() {
+            // Здесь можно добавить логику для связи с поддержкой
+            alert('Функция связи с поддержкой будет добавлена позже');
+        }
+
+        function toggleDescription() {
+            const content = document.querySelector('.description-content');
+            const button = document.querySelector('.read-more span');
+            const icon = document.querySelector('.read-more svg');
+            
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                button.textContent = 'Читать дальше';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = content.scrollHeight + 'px';
+                button.textContent = 'Свернуть';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загружаем количество товаров в корзине
+            updateCartCountFromServer();
+            
+            // Проверяем возможность добавления в корзину
+            checkCanAddToCart();
+        });
+
+        // Загрузка количества товаров в корзине с сервера
+        async function updateCartCountFromServer() {
+            try {
+                const response = await fetch('/api/cart/demo_user');
+                if (response.ok) {
+                    const cart = await response.json();
+                    updateCartCount(cart.items.length);
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки корзины:', error);
+            }
+        }
+    </script>
+</body>
+</html>
