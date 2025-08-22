@@ -1,17 +1,12 @@
-<svg width="200" height="80" viewBox="0 0 200 80" xmlns="http://www.w3.org/2000/svg">
-  <!-- Темный фон -->
-  <rect width="200" height="80" fill="#1a1a2e" rx="8"/>
+<svg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+  <!-- Круглый фон в стиле W4STORE (светло-бежевый) -->
+  <circle cx="20" cy="20" r="20" fill="#f5f5dc"/>
   
-  <!-- Круглая рамка -->
-  <circle cx="100" cy="40" r="35" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.8"/>
+  <!-- Внутренний круг (темно-красный) -->
+  <circle cx="20" cy="20" r="16" fill="none" stroke="#8b0000" stroke-width="2" opacity="0.8"/>
   
-  <!-- Основной текст W4STORE -->
-  <text x="100" y="35" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" letter-spacing="1">
-    W4STORE
-  </text>
-  
-  <!-- Подзаголовок WOMEN'S CLOTHING -->
-  <text x="100" y="52" font-family="Arial, sans-serif" font-size="10" fill="#ffffff" text-anchor="middle" opacity="0.9" letter-spacing="0.5">
-    WOMEN'S CLOTHING
+  <!-- Текст W4 (темно-красный) -->
+  <text x="20" y="26" font-family="Georgia, serif" font-size="14" font-weight="bold" fill="#8b0000" text-anchor="middle" letter-spacing="0.5">
+    W4
   </text>
 </svg>

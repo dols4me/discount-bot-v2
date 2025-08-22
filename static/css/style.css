@@ -48,8 +48,9 @@ body {
 
 .logo {
     height: 32px;
-    width: auto;
+    width: 32px;
     transition: transform 0.3s ease;
+    border-radius: 50%;
 }
 
 .logo:hover {
@@ -58,7 +59,8 @@ body {
 
 .logo-small {
     height: 24px;
-    width: auto;
+    width: 24px;
+    border-radius: 50%;
 }
 
 .brand-name {
@@ -73,7 +75,7 @@ body {
     align-items: center;
     gap: 6px;
     padding: 8px 12px;
-    background: var(--tg-theme-button-color, #007aff);
+    background: var(--tg-theme-button-color, #8b0000);
     color: var(--tg-theme-button-text-color, #ffffff);
     border-radius: 20px;
     cursor: pointer;
@@ -86,7 +88,7 @@ body {
 
 .cart-icon:hover {
     transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.3);
 }
 
 .cart-icon:active {
@@ -95,7 +97,7 @@ body {
 
 .cart-count {
     background: var(--tg-theme-button-text-color, #ffffff);
-    color: var(--tg-theme-button-color, #007aff);
+    color: var(--tg-theme-button-color, #8b0000);
     border-radius: 50%;
     width: 18px;
     height: 18px;
@@ -205,8 +207,8 @@ body {
 
 #search-input:focus {
     outline: none;
-    border-color: var(--tg-theme-button-color, #007aff);
-    box-shadow: 0 2px 8px rgba(0, 122, 255, 0.15);
+    border-color: var(--tg-theme-button-color, #8b0000);
+    box-shadow: 0 2px 8px rgba(139, 0, 0, 0.15);
 }
 
 /* Кнопка очистки поиска в стиле FASHION FABRIQUE */
