@@ -54,7 +54,7 @@ function filterProducts() {
     
     productCards.forEach(card => {
         const productName = card.querySelector('.product-name').textContent.toLowerCase();
-        const productColor = card.querySelector('.product-color').textContent.toLowerCase();
+        const productSizes = card.querySelector('.product-sizes').textContent.toLowerCase();
         const productPrice = card.querySelector('.product-price').textContent.toLowerCase();
         const productArticle = card.querySelector('.product-article')?.textContent.toLowerCase() || '';
         
@@ -63,7 +63,7 @@ function filterProducts() {
         const productCategory = card.getAttribute('data-category') || '';
         
         if (productName.includes(searchTerm) || 
-            productColor.includes(searchTerm) || 
+            productSizes.includes(searchTerm) || 
             productPrice.includes(searchTerm) ||
             productArticle.includes(searchTerm) ||
             productId.includes(searchTerm) ||
@@ -118,9 +118,9 @@ function updateProductCounter(count) {
         const searchTerm = searchInput.value.trim();
         
         if (searchTerm.length > 0) {
-            sectionTitle.textContent = `🔍 Результаты поиска "${searchTerm}" (${count})`;
+            sectionTitle.textContent = `🔍 Результаты поиска "${searchTerm}"`;
         } else {
-            sectionTitle.textContent = `🛒 Все товары (${count})`;
+            sectionTitle.textContent = '🛒 Все товары';
         }
     }
 }
@@ -162,9 +162,9 @@ function filterByCategory(category) {
     const sectionTitle = document.querySelector('.section-title');
     if (sectionTitle) {
         if (category === 'all') {
-            sectionTitle.textContent = `🛒 Все товары (${visibleCount})`;
+            sectionTitle.textContent = '🛒 Все товары';
         } else {
-            sectionTitle.textContent = `📂 ${category} (${visibleCount})`;
+            sectionTitle.textContent = category;
         }
     }
 }
