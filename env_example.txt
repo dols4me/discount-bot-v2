@@ -1,8 +1,0 @@
-# Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN=your_telegram_bot_token_here
-
-# МойСклад API Configuration
-MOYSKLAD_API_TOKEN=your_moysklad_api_token_here
-
-# Web App Configuration (замените на ваш домен)
-WEBAPP_URL=https://your-webapp-url.com

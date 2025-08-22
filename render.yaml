@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: discount-bot-v2
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn webapp:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MOYSKLAD_TOKEN
+        value: 70ff03c8f6f33ae7b62744eb0af127b043de02fb
