@@ -72,6 +72,9 @@
                         <div class="product-price">₽{{ product.price }}</div>
                         <div class="product-name">{{ product.name }}</div>
                         <div class="product-color">{{ product.description|default('Цвет не указан') }}</div>
+                        <button class="add-to-cart-btn" onclick="addToCart('{{ product.original_id }}', null, {{ product.price }})">
+                            Добавить в корзину
+                        </button>
                     </div>
                 </div>
                     {% endif %}

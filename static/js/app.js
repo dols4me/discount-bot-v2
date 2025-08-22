@@ -306,7 +306,7 @@ async function updateCartCount() {
     try {
         // Сначала получаем данные с сервера
         try {
-            const response = await fetch(`/api/cart/${currentUserId}`);
+            const response = await fetch(`/api/cart/${window.currentUserId || 'demo_user'}`);
             const data = await response.json();
             
             if (data.cart_items && data.cart_items.length > 0) {
