@@ -5,6 +5,16 @@
     box-sizing: border-box;
 }
 
+/* Скрываем стандартный Telegram header */
+.telegram-webapp {
+    padding-top: 0 !important;
+}
+
+/* Убираем отступы для Telegram элементов */
+body {
+    padding-top: 0 !important;
+}
+
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     background: #ffffff;
@@ -20,13 +30,13 @@ body {
     padding-bottom: 120px;
 }
 
+
+
 /* Заголовок каталога в стиле FASHION FABRIQUE */
 .catalog-header {
     background: #ffffff;
     border-bottom: 1px solid #f0f0f0;
-    padding: 16px 20px;
-    position: sticky;
-    top: 0;
+    padding: 6px 20px;
     z-index: 100;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
@@ -288,12 +298,8 @@ body {
     background: #ffffff;
     border-bottom: 1px solid #f0f0f0;
     padding: 8px 20px;
-    position: sticky;
-    top: 80px;
     z-index: 99;
-    display: flex;
-    gap: 12px;
-    align-items: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 /* Контейнер сортировки */
@@ -392,7 +398,6 @@ body {
 .category-dropdown {
     position: relative;
     display: inline-block;
-    flex: 1;
 }
 
 .category-dropdown-btn {
@@ -987,44 +992,7 @@ body {
     padding-bottom: 100px; /* Отступ для фиксированных кнопок */
 }
 
-.cart-header {
-    background: var(--tg-theme-bg-color, #ffffff);
-    border-bottom: 1px solid var(--tg-theme-section-separator-color, #f0f0f0);
-    padding: 16px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
 
-.cart-header .header-content {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    align-items: center;
-    max-width: 100%;
-    margin: 0 auto;
-    gap: 16px;
-}
-
-/* Кнопка назад */
-.back-btn {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    font-size: 20px;
-    font-weight: 600;
-    color: #1a1a1a;
-    background: none;
-    border: none;
-}
-
-.back-btn:hover {
-    background: #f5f5f5;
-}
 
 /* Заголовок страницы */
 .page-title {
@@ -1198,87 +1166,46 @@ body {
     background: var(--tg-theme-bg-color, #ffffff);
     border-top: 1px solid var(--tg-theme-section-separator-color, #f0f0f0);
     padding: 16px 20px;
-    z-index: 100;
+    z-index: 99998;
     display: flex;
     gap: 12px;
 }
 
 .cart-action-btn {
     flex: 1;
-    padding: 14px 20px;
+    padding: 18px 24px;
     border: none;
     border-radius: 8px;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.clear-cart-btn {
-    background: #1a1a1a;
-    color: #ffffff;
-}
-
-.clear-cart-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.checkout-btn {
-    background: #1a1a1a;
-    color: #ffffff;
-}
-
-.checkout-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
-
-.cart-action-btn {
-    flex: 1;
-    padding: 16px;
-    border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .clear-cart-btn {
-    background: #1a1a1a;
+    background: var(--buttonBgPrimary, #1a1a1a);
     color: #ffffff;
-    border: none;
 }
 
 .clear-cart-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
+    background: var(--buttonBgPrimaryAccented, #333333);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .checkout-btn {
-    background: #1a1a1a;
+    background: var(--buttonBgPrimary, #1a1a1a);
     color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .checkout-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    background: var(--buttonBgPrimaryAccented, #333333);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Пустая корзина */
@@ -1332,9 +1259,9 @@ body {
 /* Плавающая кнопка корзины в стиле FASHION FABRIQUE */
 .floating-cart {
     position: fixed !important;
-    bottom: 24px !important;
+    bottom: 120px !important;
     right: 20px !important;
-    z-index: 9999 !important;
+    z-index: 99999 !important;
     border-radius: 50px;
     background-color: #1a1a1a;
     padding: 16px 20px;
@@ -1593,9 +1520,71 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 16px 20px;
     border-bottom: 1px solid #f0f0f0;
     background: #ffffff;
+}
+
+.menu-header .Button {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+.menu-header .Button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.menu-header .Button.translucent {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.menu-header .Button.translucent:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.menu-header .Button.round {
+    border-radius: 50%;
+}
+
+.menu-header .Button.smaller {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 6px;
+}
+
+.menu-header .modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    flex: 1;
+    margin: 0 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.menu-header .DropdownMenu {
+    position: relative;
+}
+
+.menu-header .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-header .RuJ3d9N6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu-header h2 {
@@ -1661,7 +1650,7 @@ body {
 
 .modal-header {
     background: #ffffff;
-    padding: 20px 24px;
+    padding: 16px 20px;
     border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-between;
@@ -1669,6 +1658,68 @@ body {
     position: sticky;
     top: 0;
     z-index: 10;
+}
+
+.modal-header .Button {
+    background: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    min-height: 36px;
+}
+
+.modal-header .Button:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-header .Button.translucent {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.modal-header .Button.translucent:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-header .Button.round {
+    border-radius: 50%;
+}
+
+.modal-header .Button.smaller {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 6px;
+}
+
+.modal-header .modal-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a1a;
+    text-align: center;
+    flex: 1;
+    margin: 0 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.modal-header .DropdownMenu {
+    position: relative;
+}
+
+.modal-header .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-header .RuJ3d9N6 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-header h2 {

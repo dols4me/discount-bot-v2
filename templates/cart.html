@@ -9,22 +9,11 @@
 </head>
 <body>
     <div class="cart-page">
-        <!-- Заголовок корзины -->
-        <header class="cart-header">
-            <div class="header-content">
-                <!-- Кнопка назад -->
-                <div class="back-btn" onclick="goBack()">
-                    ←
-                </div>
-                
-                <!-- Название бренда -->
-                <div class="brand-container">
-                    <span class="brand-name">W4STORE</span>
-                </div>
-                
 
-            </div>
-        </header>
+
+
+
+
 
         <!-- Содержимое корзины -->
         <div class="cart-content">
@@ -113,20 +102,37 @@
 
     <script src="/static/js/app.js"></script>
     <script>
-        // Инициализация Telegram WebApp
+        // Функции для Telegram Header
+        function closeBot() {
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.close();
+            } else {
+                // Fallback для браузера
+                window.history.back();
+            }
+        }
+
+
+
+        // Инициализация Telegram WebApp и скрытие стандартного header
         if (window.Telegram && window.Telegram.WebApp) {
             const tg = window.Telegram.WebApp;
-            tg.ready();
+            
+            // Скрываем стандартный Telegram header
+            tg.setHeaderColor('transparent');
+            tg.setBackgroundColor('transparent');
+            
+            // Убираем стандартную кнопку меню
+            tg.MainButton.hide();
+            tg.BackButton.hide();
+            
+            // Расширяем на весь экран
             tg.expand();
             
-            window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
+            // Готовы к работе
+            tg.ready();
             
-            {% if cart_items %}
-            // Настраиваем главную кнопку для оформления заказа
-            tg.MainButton.text = 'Оформить заказ ({{ "{:,.0f}".format(total) }} {{ currency }})';
-            tg.MainButton.show();
-            tg.MainButton.onClick(() => checkout());
-            {% endif %}
+            window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
         }
 
 

@@ -10,6 +10,9 @@
 </head>
 <body>
     <div class="app-container">
+
+
+
         <!-- Заголовок -->
         <header class="catalog-header">
             <div class="header-content">
@@ -119,9 +122,24 @@
     <!-- Модальное окно корзины -->
     <div class="modal" id="cart-modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h2>🛒 Корзина</h2>
-                <button class="close-btn" onclick="closeCart()">&times;</button>
+            <div class="modal-header" style="background-color: rgb(255, 255, 255); --color-header-text: var(--color-text);">
+                <button type="button" class="Button smaller translucent round" aria-label="Back" title="Back" onclick="closeCart()">
+                    <div class="RuJ3d9N6 IWA50OWU">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div class="modal-title">W4STORE</div>
+                <div class="DropdownMenu web-app-more-menu with-menu-transitions">
+                    <button type="button" class="Button kKPD09tc smaller translucent round" aria-label="More actions" title="More actions" onclick="toggleTelegramMenu()">
+                        <i class="icon icon-more" aria-hidden="true">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
             </div>
             <div class="modal-body" id="cart-content">
                 <!-- Содержимое корзины будет загружено динамически -->
@@ -133,9 +151,24 @@
     <div class="menu-modal" id="menu-modal">
         <div class="menu-overlay" onclick="closeMenu()"></div>
         <div class="menu-content">
-            <div class="menu-header">
-                <h2>Меню</h2>
-                <button class="close-btn" onclick="closeMenu()">&times;</button>
+            <div class="menu-header" style="background-color: rgb(255, 255, 255); --color-header-text: var(--color-text);">
+                <button type="button" class="Button smaller translucent round" aria-label="Back" title="Back" onclick="closeMenu()">
+                    <div class="RuJ3d9N6 IWA50OWU">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                        </svg>
+                    </div>
+                </button>
+                <div class="modal-title">W4STORE</div>
+                <div class="DropdownMenu web-app-more-menu with-menu-transitions">
+                    <button type="button" class="Button kKPD09tc smaller translucent round" aria-label="More actions" title="More actions">
+                        <i class="icon icon-more" aria-hidden="true">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                            </svg>
+                        </i>
+                    </button>
+                </div>
             </div>
             <div class="menu-body">
                 <div class="menu-item" onclick="showDeliveryInfo()">
@@ -164,18 +197,26 @@
 
     <script src="/static/js/app.js"></script>
     <script>
-        // Инициализация Telegram WebApp
+        // Инициализация Telegram WebApp и скрытие стандартного header
         if (window.Telegram && window.Telegram.WebApp) {
             const tg = window.Telegram.WebApp;
-            tg.ready();
+            
+            // Скрываем стандартный Telegram header
+            tg.setHeaderColor('transparent');
+            tg.setBackgroundColor('transparent');
+            
+            // Убираем стандартную кнопку меню
+            tg.MainButton.hide();
+            tg.BackButton.hide();
+            
+            // Расширяем на весь экран
             tg.expand();
+            
+            // Готовы к работе
+            tg.ready();
             
             // Получаем ID пользователя из Telegram
             window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
-            
-            // Настраиваем главную кнопку
-            tg.MainButton.text = 'Перейти в корзину';
-            tg.MainButton.onClick(() => openCart());
         }
 
         // Переменные для бесконечной прокрутки
@@ -208,6 +249,8 @@
                 menuModal.style.display = 'none';
             }, 300);
         }
+
+
 
         // Функции для поиска
         function toggleSearch() {

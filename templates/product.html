@@ -23,6 +23,7 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
+            padding-top: 72px;
         }
 
         .sectionContainer {
@@ -31,7 +32,7 @@
 
         .PDPImageSwiper {
             width: 100%;
-            height: 450px;
+            height: 800px;
             background: #f8f8f8;
         }
 
@@ -64,13 +65,23 @@
         }
 
         .share {
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 50%;
             width: 40px;
             height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            z-index: 50;
+            transition: all 0.3s ease;
+        }
+
+        .share:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: scale(1.05);
         }
 
         .ProductPage_container {
@@ -96,19 +107,20 @@
             font-size: 14px;
             color: var(--text-secondary);
             margin-bottom: 8px;
-            display: block;
+            display: inline;
             font-family: 'Inter', sans-serif;
             font-weight: 500;
+            padding: 4px 8px;
         }
 
         .attribute-value {
-            font-size: 16px;
+            font-size: 14px;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
             color: var(--text-primary);
             font-weight: 600;
             margin-bottom: 12px;
-            display: block;
+            display: inline;
         }
 
         .attribute-options {
@@ -130,12 +142,12 @@
         }
 
         .option-button:hover {
-            border-color: #007bff;
+            border-color: #666666;
         }
 
         .option-button.selected {
-            border-color: #007bff;
-            background: #007bff;
+            border-color: #000000;
+            background: #000000;
             color: #fff;
         }
 
@@ -146,7 +158,7 @@
         }
 
         .product-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 16px;
@@ -154,7 +166,7 @@
         }
 
         .product-price {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: 700;
             color: var(--text-primary);
             margin-bottom: 20px;
@@ -165,16 +177,17 @@
         }
 
         .description-title {
-            font-size: 16px;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: #666666;
             margin-bottom: 12px;
         }
 
         .description-content {
             font-size: 14px;
-            color: var(--text-secondary);
+            color: #000000;
             line-height: 1.6;
+            margin-bottom: 8px;
         }
 
         .read-more {
@@ -248,7 +261,7 @@
         .cart-icon {
             position: fixed !important;
             right: 20px !important;
-            bottom: 24px !important;
+            bottom: 120px !important;
             width: 56px;
             height: 56px;
             background: var(--buttonBgPrimary);
@@ -258,7 +271,7 @@
             justify-content: center;
             color: #fff;
             text-decoration: none;
-            z-index: 9999 !important;
+            z-index: 99999 !important;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
@@ -286,6 +299,7 @@
             font-size: 12px;
             font-weight: 700;
             border: 2px solid var(--buttonBgPrimary);
+            z-index: 999999 !important;
         }
 
         .error-message {
@@ -359,7 +373,7 @@
 
         @media (max-width: 768px) {
             .PDPImageSwiper {
-                height: 300px;
+                height: 600px;
             }
             
             .ProductPage_container {
@@ -367,10 +381,23 @@
                 padding: 16px;
             }
         }
+        
+        @media (max-width: 480px) {
+            .PDPImageSwiper {
+                height: 550px;
+            }
+            
+            .ProductPage_container {
+                margin: 0 8px;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="h-full relative">
+
+
         <div class="ProductPage flex flex-col bg-backgroundSecondary h-full">
             <div class="flex flex-col grow overflow-auto gap-5">
                 
@@ -391,9 +418,9 @@
                         <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal">
                             <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
                         </div>
-                        <button class="share" onclick="shareProduct()">
-                            <svg width="24px" height="24px" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 4.4932C13 4.05265 13.5289 3.82775 13.8467 4.13285L20.624 10.6397C20.8287 10.8365 20.8289 11.1637 20.624 11.3604L13.8467 17.8672C13.529 18.1719 13.0004 17.947 13 17.5069V14C7.02671 13 4 18 4 18C4 12.4772 7.47715 8.00003 13 8.00003V4.4932Z" fill="white"></path>
+                        <button class="share" onclick="shareProduct()" style="position: absolute; top: 16px; right: 16px; z-index: 50; background: rgba(0, 0, 0, 0.7); color: #ffffff; border: none; padding: 8px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13 4.4932C13 4.05265 13.5289 3.82775 13.8467 4.13285L20.624 10.6397C20.8287 10.8365 20.8289 11.1637 20.624 11.3604L13.8467 17.8672C13.529 18.1719 13.0004 17.947 13 17.5069V14C7.02671 13 4 18 4 18C4 12.4772 7.47715 8.00003 13 8.00003V4.4932Z"></path>
                             </svg>
                         </button>
                     </div>
@@ -405,7 +432,7 @@
                     <!-- Выбор цвета -->
                     <div class="flex flex-col gap-2">
                         <span class="attribute-label">Цвет: <span class="attribute-value" id="selected-color">Выберите цвет</span></span>
-                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="color-options">
+                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="color-options" style="padding: 8px 0;">
                             {% if product.available_colors %}
                                 {% for color in product.available_colors %}
                                 <button class="option-button color-option" data-color="{{ color }}" onclick="selectColor('{{ color }}')">
@@ -413,7 +440,7 @@
                                 </button>
                                 {% endfor %}
                             {% else %}
-                                <span class="text-gray-500">Цвет не указан</span>
+                                <span style="color: #666666; padding: 4px 8px; font-size: 14px;">Цвет не указан</span>
                             {% endif %}
                         </div>
                     </div>
@@ -421,7 +448,7 @@
                     <!-- Выбор размера -->
                     <div class="flex flex-col gap-2">
                         <span class="attribute-label">Размер: <span class="attribute-value" id="selected-size">Выберите размер</span></span>
-                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="size-options">
+                        <div class="flex flex-row gap-2 flex-wrap attribute-options" id="size-options" style="padding: 8px 0;">
                             {% if product.available_sizes %}
                                 {% for size in product.available_sizes %}
                                 <button class="option-button size-option" data-size="{{ size }}" onclick="selectSize('{{ size }}')">
@@ -429,12 +456,15 @@
                                 </button>
                                 {% endfor %}
                             {% else %}
-                                <span class="text-gray-500">Размер не указан</span>
+                                <span style="color: #666666; padding: 4px 8px; font-size: 14px;">Размер не указан</span>
                             {% endif %}
                         </div>
                     </div>
 
                 </div>
+                
+                <!-- Отступ после атрибутов -->
+                <div style="margin-bottom: 12px;"></div>
 
                 <!-- Описание товара -->
                 <div class="flex flex-col gap-4 ProductPage_container Description">
@@ -443,15 +473,19 @@
                         <div class="flex flex-row gap-2 items-baseline">
                             <span class="product-price">{{ "%.0f"|format(product.price) }} ₽</span>
                         </div>
+                        <!-- Отступ после цены -->
+                        <div style="margin-bottom: 16px;"></div>
                     </div>
                     
                     <div class="flex flex-col gap-2">
                         <span class="description-title">Описание товара</span>
+                        <!-- Отступ после заголовка описания -->
+                        <div style="margin-bottom: 12px;"></div>
                         <div>
                             <div class="description-content">
-                                <span>Арт. {{ product.article or 'Не указан' }}</span>
+                                <span style="color: #000000; font-size: 13px; margin-bottom: 0; display: block;">Арт. {{ product.article or 'Не указан' }}</span>
                                 <div>
-                                    <p>{{ product.description or 'Описание товара отсутствует' }}</p>
+                                    <p style="color: #000000; font-size: 13px; margin-bottom: 0;">{{ product.description or 'Описание товара отсутствует' }}</p>
                                     {% if product.modifications %}
                                     <p><strong>Доступные варианты:</strong></p>
                                     <ul>
@@ -483,10 +517,25 @@
             <!-- Нижняя панель с кнопкой корзины -->
             <div class="bg-backgroundBottomBar">
                 <div class="ProductPage_bottomButtonWrapper bottomButtonWrapper_tdesktop">
-                    <div class="flex gap-4 h-full">
+                    <div class="flex gap-4 h-full" id="cart-buttons-container" style="width: 100%;">
                         <button class="add-to-cart-button" id="add-to-cart-btn" onclick="addToCart()" disabled>
                             Добавить в корзину
                         </button>
+                        <div class="cart-after-add" id="cart-after-add" style="display: none; width: 100%;">
+                            <div style="display: flex; flex-direction: column; width: 100%; height: 100%; gap: 8px;">
+                                <div class="cart-icon" style="text-align: center; padding: 8px; color: #1a1a1a; font-size: 20px;">
+                                    🛒
+                                </div>
+                                <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
+                                    <div class="cart-quantity" style="width: 30%; text-align: center; padding: 18px 24px; background: #f5f5f5; border-radius: 8px 0 0 8px; font-size: 16px; font-weight: 600; color: #1a1a1a; display: flex; align-items: center; justify-content: center; margin: 0; border: none;">
+                                        <span id="cart-items-count">0</span> шт.
+                                    </div>
+                                    <button class="go-to-cart-button" onclick="goToCart()" style="width: 70%; background: #333333; color: #ffffff; border: none; padding: 18px 24px; border-radius: 0 8px 8px 0; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin: 0; margin-left: 0;">
+                                        Перейти в корзину
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <a class="cart-icon" href="/cart" id="cart-icon">
                         <div class="cart-count" id="cart-count">0</div>
@@ -502,6 +551,13 @@
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
+        // Функции для Telegram Header
+        function goBack() {
+            window.history.back();
+        }
+
+
+
         // Инициализация Swiper
         const swiper = new Swiper('.PDPImageSwiper', {
             pagination: {
@@ -618,7 +674,14 @@
                     if (result.success) {
                         // Обновляем счетчик корзины с сервера
                         await updateCartCountFromServer();
-                        showMessage('Товар добавлен в корзину!', 'success');
+                        
+                        // Переключаем кнопки
+                        document.getElementById('add-to-cart-btn').style.display = 'none';
+                        document.getElementById('cart-after-add').style.display = 'block';
+                        
+                        // Обновляем количество товаров
+                        const cartCount = document.getElementById('cart-count').textContent;
+                        document.getElementById('cart-items-count').textContent = cartCount;
                     } else {
                         showMessage(result.message || 'Ошибка добавления в корзину', 'error');
                     }
@@ -670,6 +733,10 @@
             }
         }
 
+        function goToCart() {
+            window.location.href = '/cart';
+        }
+        
         function contactSupport() {
             // Здесь можно добавить логику для связи с поддержкой
             alert('Функция связи с поддержкой будет добавлена позже');
@@ -693,11 +760,23 @@
 
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
-            // Инициализация Telegram WebApp
+            // Инициализация Telegram WebApp и скрытие стандартного header
             if (window.Telegram && window.Telegram.WebApp) {
                 const tg = window.Telegram.WebApp;
-                tg.ready();
+                
+                // Скрываем стандартный Telegram header
+                tg.setHeaderColor('transparent');
+                tg.setBackgroundColor('transparent');
+                
+                // Убираем стандартную кнопку меню
+                tg.MainButton.hide();
+                tg.BackButton.hide();
+                
+                // Расширяем на весь экран
                 tg.expand();
+                
+                // Готовы к работе
+                tg.ready();
                 
                 // Получаем ID пользователя из Telegram
                 window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
