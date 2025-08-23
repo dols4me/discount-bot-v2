@@ -261,7 +261,7 @@
         .cart-icon {
             position: fixed !important;
             right: 20px !important;
-            bottom: 120px !important;
+            bottom: 24px !important;
             width: 56px;
             height: 56px;
             background: var(--buttonBgPrimary);
@@ -271,7 +271,7 @@
             justify-content: center;
             color: #fff;
             text-decoration: none;
-            z-index: 99999 !important;
+            z-index: 9999 !important;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
             transition: all 0.3s ease;
             font-family: 'Inter', sans-serif;
@@ -299,7 +299,6 @@
             font-size: 12px;
             font-weight: 700;
             border: 2px solid var(--buttonBgPrimary);
-            z-index: 999999 !important;
         }
 
         .error-message {
@@ -396,9 +395,8 @@
 </head>
 <body>
     <div class="h-full relative">
-
-        <!-- Telegram Header (кастомный, как у FASHION FABRIQUE) -->
-        <div class="telegram-header">
+        <!-- Telegram Header (статичный) -->
+        <div class="telegram-header" style="background-color: rgb(255, 255, 255); --color-header-text: var(--color-text);">
             <button type="button" class="Button smaller translucent round" aria-label="Back" title="Back" onclick="goBack()">
                 <div class="RuJ3d9N6">
                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -406,17 +404,17 @@
                     </svg>
                 </div>
             </button>
-            <div class="modal-title">W4STORE</div>
+            <div class="modal-title">WHATWILLWEWEAR</div>
             <div class="DropdownMenu web-app-more-menu with-menu-transitions">
                 <button type="button" class="Button kKPD09tc smaller translucent round" aria-label="More actions" title="More actions" onclick="toggleTelegramMenu()">
                     <i class="icon icon-more" aria-hidden="true">
                         <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
                         </svg>
                     </i>
                 </button>
                 <div class="Menu web-app-more-menu with-menu-transitions">
-                    <div role="presentation" class="bubble menu-container custom-scroll opacity-transition fast">
+                    <div role="presentation" class="bubble menu-container custom-scroll opacity-transition fast not-shown not-open">
                         <div role="menuitem" tabindex="0" class="MenuItem">
                             <i class="icon icon-bots" aria-hidden="true">
                                 <svg width="16px" height="16px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -596,7 +594,32 @@
             window.history.back();
         }
 
+        function toggleTelegramMenu() {
+            const menu = document.querySelector('.telegram-header .Menu');
+            if (menu) {
+                menu.classList.toggle('not-shown');
+                menu.classList.toggle('not-open');
+            }
+        }
 
+        // Закрытие Telegram header при клике вне меню
+        document.addEventListener('click', function(event) {
+            const telegramHeader = document.querySelector('.telegram-header');
+            const menu = document.querySelector('.telegram-header .Menu');
+            if (telegramHeader && !telegramHeader.contains(event.target)) {
+                if (menu) {
+                    menu.classList.add('not-shown', 'not-open');
+                }
+            }
+        });
+
+        // Инициализация состояния меню при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            const menu = document.querySelector('.telegram-header .Menu');
+            if (menu) {
+                menu.classList.add('not-shown', 'not-open');
+            }
+        });
 
         // Инициализация Swiper
         const swiper = new Swiper('.PDPImageSwiper', {
@@ -782,28 +805,6 @@
             alert('Функция связи с поддержкой будет добавлена позже');
         }
 
-        function goBack() {
-            window.history.back();
-        }
-
-        function toggleTelegramMenu() {
-            const menu = document.querySelector('.telegram-header .Menu');
-            if (menu) {
-                menu.classList.toggle('show');
-            }
-        }
-
-        // Закрытие Telegram header при клике вне меню
-        document.addEventListener('click', function(event) {
-            const telegramHeader = document.querySelector('.telegram-header');
-            const menu = document.querySelector('.telegram-header .Menu');
-            if (telegramHeader && !telegramHeader.contains(event.target)) {
-                if (menu) {
-                    menu.classList.remove('show');
-                }
-            }
-        });
-
         function toggleDescription() {
             const content = document.querySelector('.description-content');
             const button = document.querySelector('.read-more span');
@@ -825,64 +826,12 @@
             // Инициализация Telegram WebApp
             if (window.Telegram && window.Telegram.WebApp) {
                 const tg = window.Telegram.WebApp;
-                
-                // Принудительно разворачиваем на весь экран
-                try {
-                    tg.expand();
-                    tg.setHeaderColor('transparent');
-                    tg.setBackgroundColor('transparent');
-                    tg.MainButton.hide();
-                    tg.BackButton.hide();
-                } catch (e) {
-                    console.log('Telegram WebApp API не поддерживается:', e);
-                }
-                
                 tg.ready();
+                tg.expand();
                 
                 // Получаем ID пользователя из Telegram
                 window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
             }
-
-            // Принудительно скрываем стандартный Telegram header
-            function hideTelegramHeader() {
-                // Скрываем все возможные элементы стандартного header
-                const selectors = [
-                    '.telegram-webapp-header',
-                    '[data-testid="web-app-header"]',
-                    '[data-testid="web-app-header-title"]',
-                    '[data-testid="web-app-header-button"]',
-                    '.telegram-webapp-main-button',
-                    '.telegram-webapp-back-button',
-                    'header[class*="telegram"]',
-                    'div[class*="telegram-header"]',
-                    'div[class*="web-app-header"]'
-                ];
-                
-                selectors.forEach(selector => {
-                    const elements = document.querySelectorAll(selector);
-                    elements.forEach(el => {
-                        el.style.display = 'none';
-                        el.style.visibility = 'hidden';
-                        el.style.opacity = '0';
-                        el.style.height = '0';
-                        el.style.overflow = 'hidden';
-                    });
-                });
-                
-                // Убираем отступы сверху
-                document.documentElement.style.marginTop = '0';
-                document.documentElement.style.paddingTop = '0';
-                document.body.style.marginTop = '0';
-                document.body.style.paddingTop = '0';
-            }
-
-            // Запускаем скрытие header'а
-            hideTelegramHeader();
-            
-            // Повторяем через небольшие интервалы для надежности
-            setInterval(hideTelegramHeader, 100);
-            setTimeout(hideTelegramHeader, 500);
-            setTimeout(hideTelegramHeader, 1000);
             
             // Загружаем количество товаров в корзине
             updateCartCountFromServer();

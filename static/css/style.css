@@ -5,45 +5,29 @@
     box-sizing: border-box;
 }
 
-/* Скрываем стандартный Telegram header */
-.telegram-webapp {
-    padding-top: 0 !important;
-}
-
-/* Убираем отступы для Telegram элементов */
 body {
-    padding-top: 0 !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* Принудительно скрываем стандартный Telegram header */
-.telegram-webapp-header {
-    display: none !important;
-    visibility: hidden !important;
-    opacity: 0 !important;
-    height: 0 !important;
-    overflow: hidden !important;
+.app-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    padding-top: 10px;
 }
 
-/* Скрываем все стандартные элементы Telegram */
-[data-testid="web-app-header"],
-[data-testid="web-app-header-title"],
-[data-testid="web-app-header-button"] {
-    display: none !important;
+/* Убираем отступ сверху на главной странице */
+.catalog-header + .telegram-header ~ .catalog-header,
+.app-container > .telegram-header:first-child ~ .catalog-header {
+    margin-top: 0;
 }
 
-/* Принудительно убираем отступы сверху */
-html, body {
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-}
-
-/* Скрываем стандартную кнопку меню */
-.telegram-webapp-main-button,
-.telegram-webapp-back-button {
-    display: none !important;
-}
-
-/* Стили для Telegram Header (кастомный, как у FASHION FABRIQUE) */
+/* Стили для Telegram Header */
 .telegram-header {
     background: #ffffff;
     padding: 16px 20px;
@@ -135,12 +119,42 @@ html, body {
     visibility: hidden;
     transform: translateY(-8px);
     transition: all 0.2s ease;
+    pointer-events: none;
 }
 
-.telegram-header .Menu.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+.telegram-header .Menu.not-shown {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) !important;
+    pointer-events: none !important;
+}
+
+.telegram-header .Menu.not-open {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) !important;
+    pointer-events: none !important;
+}
+
+.telegram-header .Menu:not(.not-shown):not(.not-open) {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+}
+
+/* По умолчанию меню скрыто */
+.telegram-header .Menu {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-8px) !important;
+    pointer-events: none !important;
+}
+
+/* Скрываем telegram-header на главной странице */
+.catalog-header + .telegram-header,
+.app-container > .telegram-header:first-child {
+    display: none !important;
 }
 
 .telegram-header .MenuItem {
@@ -165,24 +179,6 @@ html, body {
     width: 16px;
     height: 16px;
 }
-
-body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: #ffffff;
-    color: #1a1a1a;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-}
-
-.app-container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding-bottom: 120px;
-    padding-top: 72px;
-}
-
-
 
 /* Заголовок каталога в стиле FASHION FABRIQUE */
 .catalog-header {
@@ -1318,7 +1314,7 @@ body {
     background: var(--tg-theme-bg-color, #ffffff);
     border-top: 1px solid var(--tg-theme-section-separator-color, #f0f0f0);
     padding: 16px 20px;
-    z-index: 99998;
+    z-index: 100;
     display: flex;
     gap: 12px;
 }
@@ -1411,9 +1407,9 @@ body {
 /* Плавающая кнопка корзины в стиле FASHION FABRIQUE */
 .floating-cart {
     position: fixed !important;
-    bottom: 120px !important;
+    bottom: 24px !important;
     right: 20px !important;
-    z-index: 99999 !important;
+    z-index: 9999 !important;
     border-radius: 50px;
     background-color: #1a1a1a;
     padding: 16px 20px;
