@@ -825,12 +825,64 @@
             // Инициализация Telegram WebApp
             if (window.Telegram && window.Telegram.WebApp) {
                 const tg = window.Telegram.WebApp;
+                
+                // Принудительно разворачиваем на весь экран
+                try {
+                    tg.expand();
+                    tg.setHeaderColor('transparent');
+                    tg.setBackgroundColor('transparent');
+                    tg.MainButton.hide();
+                    tg.BackButton.hide();
+                } catch (e) {
+                    console.log('Telegram WebApp API не поддерживается:', e);
+                }
+                
                 tg.ready();
-                tg.expand();
                 
                 // Получаем ID пользователя из Telegram
                 window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
             }
+
+            // Принудительно скрываем стандартный Telegram header
+            function hideTelegramHeader() {
+                // Скрываем все возможные элементы стандартного header
+                const selectors = [
+                    '.telegram-webapp-header',
+                    '[data-testid="web-app-header"]',
+                    '[data-testid="web-app-header-title"]',
+                    '[data-testid="web-app-header-button"]',
+                    '.telegram-webapp-main-button',
+                    '.telegram-webapp-back-button',
+                    'header[class*="telegram"]',
+                    'div[class*="telegram-header"]',
+                    'div[class*="web-app-header"]'
+                ];
+                
+                selectors.forEach(selector => {
+                    const elements = document.querySelectorAll(selector);
+                    elements.forEach(el => {
+                        el.style.display = 'none';
+                        el.style.visibility = 'hidden';
+                        el.style.opacity = '0';
+                        el.style.height = '0';
+                        el.style.overflow = 'hidden';
+                    });
+                });
+                
+                // Убираем отступы сверху
+                document.documentElement.style.marginTop = '0';
+                document.documentElement.style.paddingTop = '0';
+                document.body.style.marginTop = '0';
+                document.body.style.paddingTop = '0';
+            }
+
+            // Запускаем скрытие header'а
+            hideTelegramHeader();
+            
+            // Повторяем через небольшие интервалы для надежности
+            setInterval(hideTelegramHeader, 100);
+            setTimeout(hideTelegramHeader, 500);
+            setTimeout(hideTelegramHeader, 1000);
             
             // Загружаем количество товаров в корзине
             updateCartCountFromServer();

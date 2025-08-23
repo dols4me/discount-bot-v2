@@ -15,6 +15,34 @@ body {
     padding-top: 0 !important;
 }
 
+/* Принудительно скрываем стандартный Telegram header */
+.telegram-webapp-header {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+/* Скрываем все стандартные элементы Telegram */
+[data-testid="web-app-header"],
+[data-testid="web-app-header-title"],
+[data-testid="web-app-header-button"] {
+    display: none !important;
+}
+
+/* Принудительно убираем отступы сверху */
+html, body {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+}
+
+/* Скрываем стандартную кнопку меню */
+.telegram-webapp-main-button,
+.telegram-webapp-back-button {
+    display: none !important;
+}
+
 /* Стили для Telegram Header (кастомный, как у FASHION FABRIQUE) */
 .telegram-header {
     background: #ffffff;
