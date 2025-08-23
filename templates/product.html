@@ -397,6 +397,46 @@
 <body>
     <div class="h-full relative">
 
+        <!-- Telegram Header (кастомный, как у FASHION FABRIQUE) -->
+        <div class="telegram-header">
+            <button type="button" class="Button smaller translucent round" aria-label="Back" title="Back" onclick="goBack()">
+                <div class="RuJ3d9N6">
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                    </svg>
+                </div>
+            </button>
+            <div class="modal-title">W4STORE</div>
+            <div class="DropdownMenu web-app-more-menu with-menu-transitions">
+                <button type="button" class="Button kKPD09tc smaller translucent round" aria-label="More actions" title="More actions" onclick="toggleTelegramMenu()">
+                    <i class="icon icon-more" aria-hidden="true">
+                        <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"></path>
+                        </svg>
+                    </i>
+                </button>
+                <div class="Menu web-app-more-menu with-menu-transitions">
+                    <div role="presentation" class="bubble menu-container custom-scroll opacity-transition fast">
+                        <div role="menuitem" tabindex="0" class="MenuItem">
+                            <i class="icon icon-bots" aria-hidden="true">
+                                <svg width="16px" height="16px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"></path>
+                                </svg>
+                            </i>
+                            Open Bot
+                        </div>
+                        <div role="menuitem" tabindex="0" class="MenuItem">
+                            <i class="icon icon-reload" aria-hidden="true">
+                                <svg width="16px" height="16px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"></path>
+                                </svg>
+                            </i>
+                            Reload Page
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="ProductPage flex flex-col bg-backgroundSecondary h-full">
             <div class="flex flex-col grow overflow-auto gap-5">
@@ -742,6 +782,28 @@
             alert('Функция связи с поддержкой будет добавлена позже');
         }
 
+        function goBack() {
+            window.history.back();
+        }
+
+        function toggleTelegramMenu() {
+            const menu = document.querySelector('.telegram-header .Menu');
+            if (menu) {
+                menu.classList.toggle('show');
+            }
+        }
+
+        // Закрытие Telegram header при клике вне меню
+        document.addEventListener('click', function(event) {
+            const telegramHeader = document.querySelector('.telegram-header');
+            const menu = document.querySelector('.telegram-header .Menu');
+            if (telegramHeader && !telegramHeader.contains(event.target)) {
+                if (menu) {
+                    menu.classList.remove('show');
+                }
+            }
+        });
+
         function toggleDescription() {
             const content = document.querySelector('.description-content');
             const button = document.querySelector('.read-more span');
@@ -760,23 +822,11 @@
 
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
-            // Инициализация Telegram WebApp и скрытие стандартного header
+            // Инициализация Telegram WebApp
             if (window.Telegram && window.Telegram.WebApp) {
                 const tg = window.Telegram.WebApp;
-                
-                // Скрываем стандартный Telegram header
-                tg.setHeaderColor('transparent');
-                tg.setBackgroundColor('transparent');
-                
-                // Убираем стандартную кнопку меню
-                tg.MainButton.hide();
-                tg.BackButton.hide();
-                
-                // Расширяем на весь экран
-                tg.expand();
-                
-                // Готовы к работе
                 tg.ready();
+                tg.expand();
                 
                 // Получаем ID пользователя из Telegram
                 window.currentUserId = tg.initDataUnsafe?.user?.id || 'demo_user';
