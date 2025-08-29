@@ -11,6 +11,10 @@ TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
 MOYSKLAD_API_TOKEN = "70ff03c8f6f33ae7b62744eb0af127b043de02fb"  # API токен для Bearer аутентификации
 MOYSKLAD_BASE_URL = "https://api.moysklad.ru/api/remap/1.2"
 
+# MoySklad Basic Auth (для получения нового токена)
+MOYSKLAD_LOGIN = "admin@w4store"  # Логин от МойСклад
+MOYSKLAD_PASSWORD = "Zxcx12321!!"  # Пароль от МойСклад
+
 # Web App Configuration
 WEBAPP_URL = os.getenv('WEBAPP_URL', 'https://your-webapp-url.com')  # URL вашего веб-приложения
 

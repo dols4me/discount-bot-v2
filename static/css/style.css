@@ -1,4 +1,307 @@
+/* CSS переменные от FASHION FABRIQUE */
+:root {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: ui-sans-serif,system-ui,sans-serif,"Apple Color Emoji","Segoe UI Emoji",Segoe UI Symbol,"Noto Color Emoji";
+    font-feature-settings: normal;
+    font-variation-settings: normal;
+    -webkit-tap-highlight-color: transparent;
+    --swiper-theme-color: #007aff;
+    line-height: inherit;
+    --size-medium-indent: 8;
+    --size-small-indent: 4;
+    --size-xsmall-indent: 2;
+    --size-bottom-bar-button-height: 48;
+    --size-bottom-bar-one-height: 60;
+    --size-bottom-bar-two-height: 120;
+    --size-row-indent-input: 18;
+    --size-row-indent-medium: 68;
+    --size-row-indent-small: 16;
+    --size-row-height-medium: 56;
+    --size-row-height-small: 56;
+    --size-row-padding-vertical: 8;
+    --size-row-text-gap: 2;
+    --size-section-gap: 12;
+    --size-section-header-gap: 12;
+    --size-section-indent: 24;
+    --size-screen-height: 700;
+    --size-screen-width: 560;
+    --size-menu-indent: 56;
+    --radius-xsmall-radius: 6;
+    --radius-small-radius: 10;
+    --radius-medium-radius: 12;
+    --radius-large-radius: 16;
+    --radius-xlarge-radius: 16;
+    --radius-full-radius: 100;
+    --radius-menu-indent: 56;
+    --tg-theme-theme-version: 9;
+    --tg-theme-accent-text-color--dark: #007aff;
+    --tg-theme-accent-text-color--light: #2481cc;
+    --tg-theme-bg-color--dark: #282828;
+    --tg-theme-bg-color--light: #ffffff;
+    --tg-theme-bottom-bar-bg-color--dark: #3e464c;
+    --tg-theme-bottom-bar-bg-color--light: #e4e4e4;
+    --tg-theme-button-color--dark: #007aff;
+    --tg-theme-button-color--light: #2481cc;
+    --tg-theme-button-text-color--dark: #ffffff;
+    --tg-theme-button-text-color--light: #ffffff;
+    --tg-theme-destructive-text-color--dark: #ff453a;
+    --tg-theme-destructive-text-color--light: #ff3b30;
+    --tg-theme-header-bg-color--dark: #1c1c1c;
+    --tg-theme-header-bg-color--light: #efeff3;
+    --tg-theme-hint-color--dark: #ffffff;
+    --tg-theme-hint-color--light: #999999;
+    --tg-theme-link-color--dark: #007aff;
+    --tg-theme-link-color--light: #2481cc;
+    --tg-theme-secondary-bg-color--dark: #1c1c1c;
+    --tg-theme-secondary-bg-color--light: #efeff3;
+    --tg-theme-section-bg-color--dark: #282828;
+    --tg-theme-section-bg-color--light: #ffffff;
+    --tg-theme-section-header-text-color--dark: #e5e5e5;
+    --tg-theme-section-header-text-color--light: #6d6d71;
+    --tg-theme-section-separator-color--dark: #3d3d3d;
+    --tg-theme-section-separator-color--light: #eaeaea;
+    --tg-theme-subtitle-text-color--dark: #ffffff;
+    --tg-theme-subtitle-text-color--light: #999999;
+    --tg-theme-text-color--dark: #ffffff;
+    --tg-theme-text-color--light: #000000;
+    --tg-theme-custom-accent-text-color--light: #ffffff;
+    --tg-theme-custom-bottom-button-overlay-bg-color--dark: rgba(255, 255, 255, .24);
+    --tg-theme-custom-bottom-button-overlay-bg-color--light: rgba(0, 0, 0, .04);
+    --tg-theme-custom-button-secondary-color--dark: rgba(116, 116, 129, .16);
+    --tg-theme-custom-button-secondary-color--light: rgba(116, 116, 129, .08);
+    --tg-theme-custom-disabled-button-color--dark: #3c3c3e;
+    --tg-theme-custom-disabled-button-color--light: #e9e8e8;
+    --tg-theme-custom-disabled-button-text-color--dark: #606060;
+    --tg-theme-custom-disabled-button-text-color--light: #bababa;
+    --tg-theme-custom-dynamic-bg-color--dark: #212121;
+    --tg-theme-custom-dynamic-bg-color--light: #ffffff;
+    --tg-theme-custom-field-bg-color--dark: rgba(0, 0, 0, .4);
+    --tg-theme-custom-field-bg-color--light: rgba(0, 0, 0, .06);
+    --tg-theme-custom-header-accented-color--dark: var(--tg-theme-subtitle-text-color--dark);
+    --tg-theme-custom-header-accented-color--light: var(--tg-theme-subtitle-text-color--light);
+    --tg-theme-custom-header-subtitle-color--dark: var(--tg-theme-subtitle-text-color--dark);
+    --tg-theme-custom-header-subtitle-color--light: var(--tg-theme-subtitle-text-color--light);
+    --tg-theme-custom-header-title-color--dark: var(--tg-theme-text-color--dark);
+    --tg-theme-custom-header-title-color--light: var(--tg-theme-text-color--light);
+    --tg-theme-custom-highlight-on-surface-color--dark: rgba(255, 255, 255, .05);
+    --tg-theme-custom-highlight-on-surface-color--light: #f4f4f5;
+    --tg-theme-custom-highlight-on-secondary-color--dark: rgba(255, 255, 255, .05);
+    --tg-theme-custom-highlight-on-secondary-color--light: rgba(255, 255, 255, .5);
+    --tg-theme-custom-icon-tertiary-color--dark: rgba(170, 170, 170, .65);
+    --tg-theme-custom-icon-tertiary-color--light: rgba(112, 117, 121, .65);
+    --tg-theme-custom-list-header-color--dark: #303030;
+    --tg-theme-custom-list-header-color--light: #f7f7fa;
+    --tg-theme-custom-quaternary-bg-color--dark: #212121;
+    --tg-theme-custom-quaternary-bg-color--light: #f4f4f5;
+    --tg-theme-custom-panel-bg-color--dark: var(--tg-theme-section-bg-color--dark);
+    --tg-theme-custom-panel-bg-color--light: var(--tg-theme-section-bg-color--light);
+    --tg-theme-custom-panel-bottom-bg-color--dark: var(--tg-theme-section-bg-color--dark);
+    --tg-theme-custom-panel-bottom-bg-color--light: var(--tg-theme-section-bg-color--light);
+    --tg-theme-custom-popover-bg-color--dark: var(--tg-theme-header-bg-color--dark);
+    --tg-theme-custom-popover-bg-color--light: var(--tg-theme-section-bg-color--light);
+    --tg-theme-custom-popover-dark-bg-color--dark: var(--tg-theme-header-bg-color--dark);
+    --tg-theme-custom-popover-dark-bg-color--light: var(--tg-theme-section-bg-color--dark);
+    --tg-theme-custom-popover-inverted-bg-color--dark: var(--tg-theme-secondary-bg-color--light);
+    --tg-theme-custom-popover-inverted-bg-color--light: var(--tg-theme-section-bg-color--dark);
+    --tg-theme-custom-popover-light-bg-color--dark: var(--tg-theme-secondary-bg-color--light);
+    --tg-theme-custom-popover-light-bg-color--light: var(--tg-theme-section-bg-color--light);
+    --tg-theme-custom-positive-text-color--light: #54b95e;
+    --tg-theme-custom-positive-text-color--dark: #11ca4f;
+    --tg-theme-custom-secondary-text-color--dark: rgba(175, 175, 182, .85);
+    --tg-theme-custom-secondary-text-color--light: rgba(85, 85, 94, .85);
+    --tg-theme-custom-tertiary-bg-color--dark: rgba(116, 116, 129, .16);
+    --tg-theme-custom-tertiary-bg-color--light: #ffffff;
+    --tg-theme-custom-tertiary-text-color--dark: rgba(175, 175, 182, .65);
+    --tg-theme-custom-tertiary-text-color--light: rgba(85, 85, 94, .65);
+    --tg-theme-custom-separator-regular-color--dark: rgba(255, 255, 255, .1);
+    --tg-theme-custom-separator-regular-color--light: rgba(0, 0, 0, .1);
+    --tg-theme-custom-separator-strong-color--dark: rgba(255, 255, 255, .2);
+    --tg-theme-custom-separator-strong-color--light: rgba(0, 0, 0, .2);
+    --typography-font-family: Roboto;
+    --typography-font-size-display-medium: 42;
+    --typography-font-size-headline-medium: 28;
+    --typography-font-size-headline-small: 24;
+    --typography-font-size-title-large: 22;
+    --typography-font-size-title-medium: 20;
+    --typography-font-size-title-small: 18;
+    --typography-font-size-body-large: 16;
+    --typography-font-size-body-medium: 14;
+    --typography-font-size-label-large: 13;
+    --typography-font-size-label-medium: 12;
+    --typography-font-size-label-small: 10;
+    --typography-font-style-italic: italic;
+    --typography-font-style-normal: normal;
+    --typography-font-weight-bold: 700;
+    --typography-font-weight-semibold: 600;
+    --typography-font-weight-medium: 500;
+    --typography-font-weight-regular: 400;
+    --typography-line-height-display-medium: 48;
+    --typography-line-height-headline-medium: 36;
+    --typography-line-height-headline-small: 32;
+    --typography-line-height-title-large: 28;
+    --typography-line-height-title-medium: 24;
+    --typography-line-height-title-small: 22;
+    --typography-line-height-body-large: 20;
+    --typography-line-height-body-large-long: 24;
+    --typography-line-height-body-medium: 18;
+    --typography-line-height-label-large: 18;
+    --typography-line-height-label-medium: 16;
+    --typography-line-height-label-small: 12;
+    --typography-text-transform-capitalize: capitalize;
+    --typography-text-transform-lowercase: lowercase;
+    --typography-text-transform-none: none;
+    --typography-text-transform-uppercase: uppercase;
+    --tg-theme-accent-text-color: var(--tg-theme-accent-text-color--light);
+    --tg-theme-bg-color: var(--tg-theme-bg-color--light);
+    --tg-theme-bottom-bar-bg-color: var(--tg-theme-bottom-bar-bg-color--light);
+    --tg-theme-button-color: var(--tg-theme-button-color--light);
+    --tg-theme-button-text-color: var(--tg-theme-button-text-color--light);
+    --tg-theme-destructive-text-color: var(--tg-theme-destructive-text-color--light);
+    --tg-theme-header-bg-color: var(--tg-theme-header-bg-color--light);
+    --tg-theme-hint-color: var(--tg-theme-hint-color--light);
+    --tg-theme-link-color: var(--tg-theme-link-color--light);
+    --tg-theme-secondary-bg-color: var(--tg-theme-secondary-bg-color--light);
+    --tg-theme-section-bg-color: var(--tg-theme-section-bg-color--light);
+    --tg-theme-section-header-text-color: var(--tg-theme-section-header-text-color--light);
+    --tg-theme-section-separator-color: var(--tg-theme-section-separator-color--light);
+    --tg-theme-subtitle-text-color: var(--tg-theme-subtitle-text-color--light);
+    --tg-theme-text-color: var(--tg-theme-text-color--light);
+    --tg-theme-custom-field-bg-color: var(--tg-theme-custom-field-bg-color--light);
+    --tg-theme-custom-separator-regular-color: var(--tg-theme-custom-separator-regular-color--light);
+    --tg-theme-custom-separator-strong-color: var(--tg-theme-custom-separator-strong-color--light);
+    --tg-theme-custom-accent-dark-text-color: var(--tg-theme-accent-text-color--dark);
+    --tg-theme-custom-accent-inverted-text-color: var(--tg-theme-accent-text-color--dark);
+    --tg-theme-custom-accent-light-text-color: var(--tg-theme-accent-text-color--light);
+    --tg-theme-custom-dynamic-text-color: var(--tg-theme-accent-text-color--light);
+    --tg-theme-custom-bottom-button-overlay-bg-color: var(--tg-theme-custom-bottom-button-overlay-bg-color--light);
+    --tg-theme-custom-button-secondary-color: var(--tg-theme-custom-button-secondary-color--light);
+    --tg-theme-custom-disabled-button-color: var(--tg-theme-custom-disabled-button-color--light);
+    --tg-theme-custom-disabled-button-text-color: var(--tg-theme-custom-disabled-button-text-color--light);
+    --tg-theme-custom-dynamic-bg-color: var(--tg-theme-custom-dynamic-bg-color--light);
+    --tg-theme-custom-header-accented-color: var(--tg-theme-custom-header-accented-color--light);
+    --tg-theme-custom-header-subtitle-color: var(--tg-theme-custom-header-subtitle-color--light);
+    --tg-theme-custom-header-title-color: var(--tg-theme-custom-header-title-color--light);
+    --tg-theme-custom-highlight-on-surface-color: var(--tg-theme-custom-highlight-on-surface-color--light);
+    --tg-theme-custom-highlight-on-secondary-color: var(--tg-theme-custom-highlight-on-secondary-color--light);
+    --tg-theme-custom-list-header-color: var(--tg-theme-custom-list-header-color--light);
+    --tg-theme-custom-panel-bg-color: var(--tg-theme-custom-panel-bg-color--light);
+    --tg-theme-custom-panel-bottom-bg-color: var(--tg-theme-custom-panel-bottom-bg-color--light);
+    --tg-theme-custom-panel-top-bg-color: var(--tg-theme-custom-panel-bg-color--light);
+    --tg-theme-custom-popover-bg-color: var(--tg-theme-custom-popover-bg-color--light);
+    --tg-theme-custom-popover-dark-bg-color: var(--tg-theme-custom-popover-dark-bg-color--light);
+    --tg-theme-custom-popover-inverted-bg-color: var(--tg-theme-custom-popover-inverted-bg-color--light);
+    --tg-theme-custom-popover-light-bg-color: var(--tg-theme-custom-popover-light-bg-color--light);
+    --tg-theme-custom-positive-text-color: var(--tg-theme-custom-positive-text-color--light);
+    --tg-theme-custom-icon-tertiary-color: var(--tg-theme-custom-icon-tertiary-color--light);
+    --tg-theme-custom-quaternary-bg-color: var(--tg-theme-custom-quaternary-bg-color--light);
+    --tg-theme-custom-secondary-text-color: var(--tg-theme-custom-secondary-text-color--light);
+    --tg-theme-custom-tertiary-text-color: var(--tg-theme-custom-tertiary-text-color--light);
+    --tg-theme-custom-tertiary-bg-color: var(--tg-theme-custom-tertiary-bg-color--light);
+    --tg-theme-custom-text-on-light-color: var(--tg-theme-text-color--light);
+    --tg-theme-custom-text-on-dark-color: var(--tg-theme-text-color--dark);
+    --tg-theme-custom-blue-color: #137fec;
+    --tg-theme-custom-brown-color: #a68059;
+    --tg-theme-custom-cyan-color: #33ccff;
+    --tg-theme-custom-gray-color: #94949e;
+    --tg-theme-custom-green-color: #39c639;
+    --tg-theme-custom-indigo-color: #5252e0;
+    --tg-theme-custom-mint-color: #26d9ac;
+    --tg-theme-custom-orange-color: #ff9933;
+    --tg-theme-custom-pink-color: #f0426e;
+    --tg-theme-custom-purple-color: #c542f0;
+    --tg-theme-custom-red-color: #f04242;
+    --tg-theme-custom-teal-color: #52e0e0;
+    --tg-theme-custom-yellow-color: #ffbf00;
+    --background-dynamic: var(--tg-theme-custom-dynamic-bg-color);
+    --background-header-primary: var(--tg-theme-bg-color);
+    --background-header-secondary: var(--tg-theme-secondary-bg-color);
+    --background-header-section: var(--tg-theme-section-bg-color);
+    --background-highlight-on-surface: var(--tg-theme-custom-highlight-on-surface-color);
+    --background-highlight-on-secondary: var(--tg-theme-custom-highlight-on-secondary-color);
+    --background-quaternary: var(--tg-theme-custom-quaternary-bg-color);
+    --background-primary: var(--tg-theme-bg-color);
+    --background-secondary: var(--tg-theme-secondary-bg-color);
+    --background-tertiary: var(--tg-theme-custom-tertiary-bg-color);
+    --background-surface: var(--tg-theme-section-bg-color);
+    --background-list-header: var(--tg-theme-custom-list-header-color);
+    --background-bottom-bar: var(--tg-theme-bottom-bar-bg-color);
+    --background-overlay: rgba(0, 0, 0, .2);
+    --background-popover-dark: var(--tg-theme-custom-popover-dark-bg-color);
+    --background-popover-light: var(--tg-theme-custom-popover-light-bg-color);
+    --background-popover-normal: var(--tg-theme-custom-popover-bg-color);
+    --background-popover-strong: var(--tg-theme-custom-popover-inverted-bg-color);
+    --background-panel: var(--tg-theme-custom-panel-bg-color);
+    --background-panel-bottom: var(--tg-theme-custom-panel-bottom-bg-color);
+    --background-panel-top: var(--tg-theme-custom-panel-bg-color);
+    --button-bg-primary-accented: var(--tg-theme-button-color);
+    --button-bg-primary-neutral: var(--tg-theme-text-color);
+    --button-bg-primary-disabled: var(--tg-theme-custom-disabled-button-color);
+    --button-bg-secondary-neutral: var(--tg-theme-custom-button-secondary-color);
+    --button-bg-tertiary-neutral: var(--tg-theme-custom-tertiary-bg-color);
+    --field-primary: var(--tg-theme-custom-field-bg-color);
+    --text-accented: var(--tg-theme-accent-text-color);
+    --text-accent-on-dark: var(--tg-theme-custom-accent-dark-text-color);
+    --text-accent-inverted: var(--tg-theme-custom-accent-inverted-text-color);
+    --text-accent-on-light: var(--tg-theme-custom-accent-light-text-color);
+    --text-disabled-button: var(--tg-theme-custom-disabled-button-text-color);
+    --text-dynamic: var(--tg-theme-custom-dynamic-text-color);
+    --text-inverted: var(--tg-theme-bg-color);
+    --text-on-color-enabled: var(--tg-theme-button-text-color);
+    --text-link: var(--tg-theme-link-color);
+    --text-negative: var(--tg-theme-destructive-text-color);
+    --text-positive: var(--tg-theme-custom-positive-text-color);
+    --text-primary: var(--tg-theme-text-color);
+    --text-primary-on-dark: var(--tg-theme-custom-text-on-dark-color);
+    --text-primary-on-light: var(--tg-theme-custom-text-on-light-color);
+    --text-secondary: var(--tg-theme-custom-secondary-text-color);
+    --text-section-header: var(--tg-theme-section-header-text-color);
+    --text-tertiary: var(--tg-theme-custom-tertiary-text-color);
+    --border-accented: var(--tg-theme-accent-text-color);
+    --border-regular: var(--tg-theme-custom-separator-regular-color);
+    --border-strong: var(--tg-theme-custom-separator-strong-color);
+    --border-separator: var(--tg-theme-section-separator-color);
+    --border-on-color-enabled: var(--tg-theme-button-text-color);
+    --icon-accented: var(--tg-theme-accent-text-color);
+    --icon-accent-on-dark: var(--tg-theme-custom-accent-dark-text-color);
+    --icon-accent-inverted: var(--tg-theme-custom-accent-inverted-text-color);
+    --icon-accent-on-light: var(--tg-theme-custom-accent-light-text-color);
+    --icon-disabled: var(--tg-theme-custom-disabled-button-text-color);
+    --icon-dynamic: var(--tg-theme-custom-dynamic-text-color);
+    --icon-inverted: var(--tg-theme-bg-color);
+    --icon-link: var(--tg-theme-link-color);
+    --icon-negative: var(--tg-theme-destructive-text-color);
+    --icon-bg-blue: var(--tg-theme-custom-blue-color);
+    --icon-bg-brown: var(--tg-theme-custom-brown-color);
+    --icon-bg-cyan: var(--tg-theme-custom-cyan-color);
+    --icon-bg-gray: var(--tg-theme-custom-gray-color);
+    --icon-bg-green: var(--tg-theme-custom-green-color);
+    --icon-bg-indigo: var(--tg-theme-custom-indigo-color);
+    --icon-bg-mint: var(--tg-theme-custom-mint-color);
+    --icon-bg-orange: var(--tg-theme-custom-orange-color);
+    --icon-bg-pink: var(--tg-theme-custom-pink-color);
+    --icon-bg-purple: var(--tg-theme-custom-purple-color);
+    --icon-bg-red: var(--tg-theme-custom-red-color);
+    --icon-bg-teal: var(--tg-theme-custom-teal-color);
+    --icon-bg-yellow: var(--tg-theme-custom-yellow-color);
+    --icon-on-color-enabled: var(--tg-theme-button-text-color);
+    --icon-primary: var(--tg-theme-text-color);
+    --icon-primary-on-dark: var(--tg-theme-custom-text-on-dark-color);
+    --icon-primary-on-light: var(--tg-theme-custom-text-on-light-color);
+    --icon-secondary: var(--tg-theme-custom-secondary-text-color);
+    --icon-tertiary: var(--tg-theme-custom-icon-tertiary-color);
+    --ios-bottom: env(safe-area-inset-bottom, 0px);
+    scrollbar-width: thin;
+    scrollbar-color: rgba(90, 90, 90, 0.3) transparent;
+}
+
 /* Базовые стили в стиле FASHION FABRIQUE */
+html {
+    overflow-y: auto;
+    height: auto;
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -12,6 +315,9 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
 }
 
 .app-container {
@@ -19,6 +325,9 @@ body {
     margin: 0 auto;
     padding-bottom: 120px;
     padding-top: 10px;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
 }
 
 /* Убираем отступ сверху на главной странице */
@@ -156,6 +465,8 @@ body {
 .app-container > .telegram-header:first-child {
     display: none !important;
 }
+
+
 
 .telegram-header .MenuItem {
     padding: 12px 16px;
@@ -751,10 +1062,10 @@ body {
 }
 
 .cart-item-image-real {
-    width: 60px;
-    height: 60px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    border-radius: 6px;
+    border-radius: 12px;
     border: 1px solid var(--tg-theme-section-separator-color, #e5e5e5);
 }
 
@@ -792,11 +1103,25 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
-.product-sizes {
-    font-size: 13px;
+.product-details {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: 4px;
+}
+
+.product-colors {
+    font-size: 12px;
     color: #999999;
     font-weight: 400;
-    margin-bottom: 0;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.7;
+}
+
+.product-sizes {
+    font-size: 12px;
+    color: #999999;
+    font-weight: 400;
     font-family: 'Inter', sans-serif;
     opacity: 0.7;
 }
@@ -1004,18 +1329,16 @@ body {
 /* Корзина в стиле FASHION FABRIQUE */
 .cart-item {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 16px;
     padding: 16px;
-    border-bottom: 1px solid var(--tg-theme-section-separator-color, #f0f0f0);
     background: var(--tg-theme-bg-color, #ffffff);
 }
 
 .cart-item-image {
-    flex-shrink: 0;
-    width: 60px;
-    height: 60px;
-    border-radius: 8px;
+    flex: 0 0 30%;
+    min-height: 120px;
+    border-radius: 12px;
     overflow: hidden;
     background: var(--tg-theme-secondary-bg-color, #f5f5f5);
 }
@@ -1064,22 +1387,34 @@ body {
 }
 
 .cart-item-info {
-    flex: 1;
+    flex: 0 0 70%;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cart-item-name {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--tg-theme-text-color, #1a1a1a);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     line-height: 1.3;
+}
+
+.cart-item-modifications {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 400;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.7;
 }
 
 .cart-item-details {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    gap: 12px;
     margin-bottom: 8px;
 }
 
@@ -1088,50 +1423,36 @@ body {
     color: var(--tg-theme-hint-color, #666666);
 }
 
-.cart-item-price {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--tg-theme-text-color, #1a1a1a);
-}
-
 .cart-item-quantity {
     font-size: 14px;
     color: var(--tg-theme-hint-color, #666666);
-}
-
-.cart-item-controls {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 8px;
 }
 
 .cart-item-total {
     font-size: 18px;
     font-weight: 700;
     color: var(--tg-theme-text-color, #1a1a1a);
+    margin-left: auto;
+    text-align: right;
 }
 
-.remove-btn {
-    background: #1a1a1a;
-    color: #ffffff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 8px;
+.remove-item-btn {
+    background: transparent;
+    color: #666666;
+    border: 1px solid #e0e0e0;
+    padding: 6px 12px;
+    border-radius: 6px;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
     font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.remove-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+.remove-item-btn:hover {
+    background: #f5f5f5;
+    color: #333333;
+    border-color: #ccc;
 }
 .cart-page {
     max-width: 100%;
@@ -1173,7 +1494,6 @@ body {
 
 .cart-item {
     background: var(--tg-theme-bg-color, #ffffff);
-    border: 1px solid var(--tg-theme-section-separator-color, #f0f0f0);
     border-radius: 16px;
     padding: 20px;
     margin-bottom: 16px;
@@ -1188,8 +1508,8 @@ body {
 }
 
 .cart-item-image {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     border-radius: 12px;
     display: flex;
@@ -1205,16 +1525,28 @@ body {
 }
 
 .cart-item-info {
-    flex: 1;
+    flex: 0 0 70%;
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .cart-item-name {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
     color: var(--tg-theme-text-color, #1a1a1a);
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     line-height: 1.3;
+}
+
+.cart-item-modifications {
+    font-size: 14px;
+    color: #999999;
+    font-weight: 400;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+    opacity: 0.7;
 }
 
 .cart-item-price {
@@ -1226,8 +1558,8 @@ body {
 
 .cart-item-details {
     display: flex;
-    flex-direction: column;
-    gap: 4px;
+    align-items: center;
+    gap: 12px;
 }
 
 .cart-item-quantity {
@@ -1248,33 +1580,11 @@ body {
     font-size: 18px;
     font-weight: 700;
     color: var(--tg-theme-text-color, #1a1a1a);
+    margin-left: auto;
+    text-align: right;
 }
 
-.remove-btn {
-    background: #1a1a1a;
-    color: #ffffff;
-    border: none;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    font-family: 'Inter', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.remove-btn:hover {
-    background: #333333;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-}
 
 /* Итоговая сумма */
 .cart-summary {
@@ -1753,7 +2063,7 @@ body {
     display: flex;
     align-items: center;
     gap: 16px;
-    padding: 12px 20px;
+    padding: 8px 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     border-bottom: 1px solid #f8f8f8;
@@ -1931,8 +2241,8 @@ body {
 .cart-item-details {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    gap: 8px;
+    align-items: center;
+    gap: 12px;
 }
 
 .cart-item-name {
@@ -2096,8 +2406,20 @@ body {
     }
     
     .cart-item-image {
-        width: 60px;
-        height: 60px;
+        flex: 0 0 30%;
+        min-height: 120px;
+    }
+    
+    .cart-item-image-real {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .cart-item-info {
+        flex: 0 0 70%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
     
     .cart-total {
@@ -2205,4 +2527,360 @@ body {
         font-size: 14px;
         max-width: 250px;
     }
+}
+
+.payment-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 24px 0;
+    width: 100%;
+}
+
+/* Модальное окно "Доставка и возврат" */
+.delivery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.delivery-modal.show {
+    opacity: 1;
+}
+
+.delivery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.delivery-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.delivery-modal.show .delivery-content {
+    transform: translateY(0);
+}
+
+.delivery-header {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.delivery-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.delivery-section {
+    margin-bottom: 24px;
+}
+
+.delivery-section:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.delivery-section h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    margin: 16px 0 12px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.delivery-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0 0 12px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.delivery-section p:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-section ul,
+.delivery-section ol {
+    margin: 12px 0;
+    padding-left: 20px;
+}
+
+.delivery-section li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.delivery-section li:last-child {
+    margin-bottom: 0;
+}
+
+.delivery-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 24px 0;
+    width: 100%;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.contact-info p {
+    margin: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333333;
+}
+
+.contact-info p:first-child {
+    margin-top: 0;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+/* Модальное окно "О нас" */
+.about-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.about-modal.show {
+    opacity: 1;
+}
+
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.about-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.about-modal.show .about-content {
+    transform: translateY(0);
+}
+
+.about-header {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.about-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.about-section {
+    margin-bottom: 24px;
+}
+
+.about-section:last-child {
+    margin-bottom: 0;
+}
+
+.about-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 12px 0;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.about-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    text-align: justify;
+}
+
+/* Модальное окно "Оплата Долями" */
+.payment-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.payment-modal.show {
+    opacity: 1;
+}
+
+.payment-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.payment-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.payment-modal.show .payment-content {
+    transform: translateY(0);
+}
+
+.payment-header {
+    background: #ffffff;
+    padding: 16px 20px;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.payment-body {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.payment-section {
+    margin-bottom: 24px;
+}
+
+.payment-section:last-child {
+    margin-bottom: 0;
+}
+
+.payment-section h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.payment-section p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    margin: 0 0 16px 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.payment-section p:last-child {
+    margin-bottom: 0;
+}
+
+.payment-section ol {
+    margin: 16px 0;
+    padding-left: 20px;
+}
+
+.payment-section li {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+    margin-bottom: 12px;
+    font-family: 'Inter', sans-serif;
+}
+
+.payment-section li:last-child {
+    margin-bottom: 0;
+}
+
+.payment-divider {
+    height: 1px;
+    background: #f0f0f0;
+    margin: 24px 0;
+    width: 100%;
 }

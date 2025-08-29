@@ -54,7 +54,8 @@ function filterProducts() {
     
     productCards.forEach(card => {
         const productName = card.querySelector('.product-name').textContent.toLowerCase();
-        const productSizes = card.querySelector('.product-sizes').textContent.toLowerCase();
+        const productSizes = card.querySelector('.product-sizes')?.textContent.toLowerCase() || '';
+        const productColors = card.querySelector('.product-colors')?.textContent.toLowerCase() || '';
         const productPrice = card.querySelector('.product-price').textContent.toLowerCase();
         const productArticle = card.querySelector('.product-article')?.textContent.toLowerCase() || '';
         
@@ -64,6 +65,7 @@ function filterProducts() {
         
         if (productName.includes(searchTerm) || 
             productSizes.includes(searchTerm) || 
+            productColors.includes(searchTerm) ||
             productPrice.includes(searchTerm) ||
             productArticle.includes(searchTerm) ||
             productId.includes(searchTerm) ||

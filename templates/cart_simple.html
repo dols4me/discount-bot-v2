@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест корзины</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .cart-item { 
+            border: 1px solid #ddd; 
+            padding: 20px; 
+            margin: 20px 0; 
+            border-radius: 8px; 
+        }
+        .quantity-btn { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 10px 15px; 
+            margin: 0 5px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            font-size: 18px;
+        }
+        .quantity-btn:hover { background: #0056b3; }
+        .quantity-btn.minus-btn { background: #dc3545; }
+        .quantity-btn.minus-btn:hover { background: #c82333; }
+        .selected-quantity { 
+            font-size: 18px; 
+            font-weight: bold; 
+            margin: 0 15px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>🧪 Тест корзины</h1>
+    
+    <div class="cart-item">
+        <h3>Тестовый товар</h3>
+        <p>Цена: 1000 ₽</p>
+        
+        <div class="cart-quantity-selector">
+            <button class="quantity-btn minus-btn" onclick="testMinusClick('test-123', 1)">
+                -
+            </button>
+            <span class="selected-quantity">1</span>
+            <button class="quantity-btn plus-btn" onclick="testPlusClick('test-123', 1)">
+                +
+            </button>
+        </div>
+    </div>
+
+    <div class="cart-item">
+        <h3>Тестовый товар 2</h3>
+        <p>Цена: 2000 ₽</p>
+        
+        <div class="cart-quantity-selector">
+            <button class="quantity-btn minus-btn" onclick="testMinusClick('test-456', 3)">
+                -
+            </button>
+            <span class="selected-quantity">3</span>
+            <button class="quantity-btn plus-btn" onclick="testPlusClick('test-456', 3)">
+                +
+            </button>
+        </div>
+    </div>
+
+    <div id="output" style="margin-top: 20px; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #dee2e6;">
+        <strong>Вывод:</strong> <span id="output-text">Нажмите кнопку для теста</span>
+    </div>
+
+    <script>
+        // Простая тестовая функция для кнопки минус
+        function testMinusClick(productId, currentQuantity) {
+            console.log('🧪 testMinusClick вызвана!');
+            console.log('  • productId:', productId);
+            console.log('  • currentQuantity:', currentQuantity);
+            
+            const output = `Кнопка МИНУС работает! productId: ${productId}, quantity: ${currentQuantity}`;
+            document.getElementById('output-text').textContent = output;
+            alert(output);
+        }
+
+        // Простая тестовая функция для кнопки плюс
+        function testPlusClick(productId, currentQuantity) {
+            console.log('🧪 testPlusClick вызвана!');
+            console.log('  • productId:', productId);
+            console.log('  • currentQuantity:', currentQuantity);
+            
+            const output = `Кнопка ПЛЮС работает! productId: ${productId}, quantity: ${currentQuantity}`;
+            document.getElementById('output-text').textContent = output;
+            alert(output);
+        }
+
+        // Проверяем, что JavaScript загрузился
+        console.log('✅ JavaScript загружен и работает!');
+        document.getElementById('output-text').textContent = 'JavaScript загружен и работает!';
+        
+        // Добавляем обработчик для проверки кликов
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('✅ DOM загружен');
+            
+            // Добавляем обработчики для всех кнопок минус
+            const minusButtons = document.querySelectorAll('.minus-btn');
+            minusButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    console.log('🔍 Клик по кнопке минус обнаружен через addEventListener');
+                });
+            });
+        });
+    </script>
+</body>
+</html>

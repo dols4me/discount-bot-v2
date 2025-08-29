@@ -28,18 +28,24 @@
 
         .sectionContainer {
             position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 0 20px;
+            background: #f8f8f8;
         }
 
         .PDPImageSwiper {
             width: 100%;
-            height: 800px;
+            height: 100%;
+            min-height: 400px;
             background: #f8f8f8;
         }
 
         .swiper-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: cover;
+            object-position: center;
         }
 
         .swiper-pagination {
@@ -65,8 +71,8 @@
         }
 
         .share {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.25);
+            border-radius: 0;
             width: 40px;
             height: 40px;
             display: flex;
@@ -80,7 +86,7 @@
         }
 
         .share:hover {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.4);
             transform: scale(1.05);
         }
 
@@ -88,14 +94,13 @@
             background: #fff;
             padding: 24px;
             margin: 0 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid #f0f0f0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
         }
 
         .PDPAttributeContainer {
             margin-top: -20px;
-            z-index: 10;
             position: relative;
         }
 
@@ -131,8 +136,8 @@
 
         .option-button {
             padding: 8px 16px;
-            border: 2px solid #e0e0e0;
-            border-radius: 8px;
+            border: none;
+            border-radius: 0;
             background: #fff;
             color: var(--text-primary);
             cursor: pointer;
@@ -166,10 +171,10 @@
         }
 
         .product-price {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 20px;
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--text-primary) !important;
+            margin-bottom: 20px !important;
         }
 
         .product-description {
@@ -212,20 +217,25 @@
         }
 
         .support-button {
-            background: #6c757d;
-            color: #fff;
+            background: #f0f0f0;
+            color: #666666;
             border: none;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
+            padding: 16px 20px;
+            border-radius: 0;
+            font-size: 15px;
+            font-weight: 600;
             cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .bottomButtonWrapper_tdesktop {
             background: var(--backgroundBottomBar);
             padding: 16px;
-            border-top: 1px solid #e0e0e0;
+            border-top: none;
             position: sticky;
             bottom: 0;
         }
@@ -235,7 +245,7 @@
             color: #fff;
             border: none;
             padding: 18px 24px;
-            border-radius: 8px;
+            border-radius: 0;
             font-size: 16px;
             font-weight: 600;
             cursor: pointer;
@@ -244,13 +254,13 @@
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: none;
         }
 
         .add-to-cart-button:hover {
             background: var(--buttonBgPrimaryAccented);
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: none;
         }
 
         .add-to-cart-button:disabled {
@@ -258,48 +268,9 @@
             cursor: not-allowed;
         }
 
-        .cart-icon {
-            position: fixed !important;
-            right: 20px !important;
-            bottom: 24px !important;
-            width: 56px;
-            height: 56px;
-            background: var(--buttonBgPrimary);
-            border-radius: 50%;
-            display: flex !important;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            z-index: 9999 !important;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-        }
 
-        .cart-icon:hover {
-            background: var(--buttonBgPrimaryAccented);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
 
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: #ffffff;
-            color: var(--buttonBgPrimary);
-            border-radius: 50%;
-            width: 22px;
-            height: 22px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 700;
-            border: 2px solid var(--buttonBgPrimary);
-        }
+
 
         .error-message {
             color: #dc3545;
@@ -316,7 +287,7 @@
         }
 
         .product-title {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-primary);
             font-family: 'Inter', sans-serif;
@@ -325,16 +296,16 @@
         }
 
         .product-price {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-primary);
-            font-family: 'Inter', sans-serif;
+            font-size: 22px !important;
+            font-weight: 700 !important;
+            color: var(--text-primary) !important;
+            font-family: 'Inter', sans-serif !important;
         }
 
         .description-title {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
-            color: var(--text-primary);
+            color: #666666;
             font-family: 'Inter', sans-serif;
             margin-bottom: 12px;
         }
@@ -348,10 +319,10 @@
 
         .option-button {
             background: #f8f8f8;
-            border: 1px solid #e0e0e0;
+            border: none;
             color: var(--text-primary);
             padding: 12px 16px;
-            border-radius: 8px;
+            border-radius: 0;
             font-size: 14px;
             font-weight: 500;
             cursor: pointer;
@@ -394,9 +365,8 @@
     </style>
 </head>
 <body>
-    <div class="h-full relative">
-        <!-- Telegram Header (статичный) -->
-        <div class="telegram-header" style="background-color: rgb(255, 255, 255); --color-header-text: var(--color-text);">
+    <!-- Telegram Header (статичный) -->
+    <div class="telegram-header" style="background-color: rgb(255, 255, 255); --color-header-text: var(--color-text); position: fixed; top: 0; left: 0; right: 0; z-index: 1000;">
             <button type="button" class="Button smaller translucent round" aria-label="Back" title="Back" onclick="goBack()">
                 <div class="RuJ3d9N6">
                     <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -436,7 +406,8 @@
             </div>
         </div>
 
-        <div class="ProductPage flex flex-col bg-backgroundSecondary h-full">
+    <!-- Основной контент страницы -->
+    <div class="ProductPage">
             <div class="flex flex-col grow overflow-auto gap-5">
                 
                 <!-- Галерея изображений -->
@@ -445,7 +416,7 @@
                         <div class="swiper-wrapper">
                             {% if product.image %}
                             <div class="swiper-slide swiper-slide-active">
-                                <img class="object-contain w-full h-full" loading="lazy" src="{{ product.image }}" alt="{{ product.name }}">
+                                <img class="w-full h-full" loading="lazy" src="{{ product.image }}" alt="{{ product.name }}">
                             </div>
                             {% else %}
                             <div class="swiper-slide swiper-slide-active">
@@ -456,7 +427,7 @@
                         <div class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal">
                             <span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span>
                         </div>
-                        <button class="share" onclick="shareProduct()" style="position: absolute; top: 16px; right: 16px; z-index: 50; background: rgba(0, 0, 0, 0.7); color: #ffffff; border: none; padding: 8px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
+                        <button class="share" onclick="shareProduct()" style="position: absolute; top: 16px; right: 16px; z-index: 50; color: #ffffff; border: none; padding: 8px; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease;">
                             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13 4.4932C13 4.05265 13.5289 3.82775 13.8467 4.13285L20.624 10.6397C20.8287 10.8365 20.8289 11.1637 20.624 11.3604L13.8467 17.8672C13.529 18.1719 13.0004 17.947 13 17.5069V14C7.02671 13 4 18 4 18C4 12.4772 7.47715 8.00003 13 8.00003V4.4932Z"></path>
                             </svg>
@@ -471,6 +442,7 @@
                     <div class="flex flex-col gap-2">
                         <span class="attribute-label">Цвет: <span class="attribute-value" id="selected-color">Выберите цвет</span></span>
                         <div class="flex flex-row gap-2 flex-wrap attribute-options" id="color-options" style="padding: 8px 0;">
+
                             {% if product.available_colors %}
                                 {% for color in product.available_colors %}
                                 <button class="option-button color-option" data-color="{{ color }}" onclick="selectColor('{{ color }}')">
@@ -487,6 +459,7 @@
                     <div class="flex flex-col gap-2">
                         <span class="attribute-label">Размер: <span class="attribute-value" id="selected-size">Выберите размер</span></span>
                         <div class="flex flex-row gap-2 flex-wrap attribute-options" id="size-options" style="padding: 8px 0;">
+
                             {% if product.available_sizes %}
                                 {% for size in product.available_sizes %}
                                 <button class="option-button size-option" data-size="{{ size }}" onclick="selectSize('{{ size }}')">
@@ -501,8 +474,8 @@
 
                 </div>
                 
-                <!-- Отступ после атрибутов -->
-                <div style="margin-bottom: 12px;"></div>
+                <!-- Разделитель после атрибутов -->
+                <div style="height: 6px; background-color: #f0f0f0; margin: 12px 0;"></div>
 
                 <!-- Описание товара -->
                 <div class="flex flex-col gap-4 ProductPage_container Description">
@@ -517,8 +490,6 @@
                     
                     <div class="flex flex-col gap-2">
                         <span class="description-title">Описание товара</span>
-                        <!-- Отступ после заголовка описания -->
-                        <div style="margin-bottom: 12px;"></div>
                         <div>
                             <div class="description-content">
                                 <span style="color: #000000; font-size: 13px; margin-bottom: 0; display: block;">Арт. {{ product.article or 'Не указан' }}</span>
@@ -544,11 +515,17 @@
                     </div>
                 </div>
 
+                <!-- Разделитель перед поддержкой -->
+                <div style="height: 6px; background-color: #f0f0f0; margin: 12px 0;"></div>
+
                 <!-- Поддержка -->
                 <div class="flex flex-col gap-4 ProductPage_container support-section">
                     <span class="support-title">Остались вопросы?</span>
-                    <button class="support-button" onclick="contactSupport()">Написать в поддержку</button>
+                    <button class="support-button" onclick="openTelegramChat()">Написать Валентине</button>
                 </div>
+
+                <!-- Разделитель после поддержки -->
+                <div style="height: 6px; background-color: #f0f0f0; margin: 12px 0;"></div>
 
             </div>
 
@@ -556,19 +533,19 @@
             <div class="bg-backgroundBottomBar">
                 <div class="ProductPage_bottomButtonWrapper bottomButtonWrapper_tdesktop">
                     <div class="flex gap-4 h-full" id="cart-buttons-container" style="width: 100%;">
-                        <button class="add-to-cart-button" id="add-to-cart-btn" onclick="addToCart()" disabled>
+                        <button class="add-to-cart-button" id="add-to-cart-btn" onclick="showQuantitySelector()" disabled>
                             Добавить в корзину
                         </button>
                         <div class="cart-after-add" id="cart-after-add" style="display: none; width: 100%;">
                             <div style="display: flex; flex-direction: column; width: 100%; height: 100%; gap: 8px;">
-                                <div class="cart-icon" style="text-align: center; padding: 8px; color: #1a1a1a; font-size: 20px;">
-                                    🛒
-                                </div>
+
                                 <div style="display: flex; flex-direction: row; width: 100%; height: 100%;">
-                                    <div class="cart-quantity" style="width: 30%; text-align: center; padding: 18px 24px; background: #f5f5f5; border-radius: 8px 0 0 8px; font-size: 16px; font-weight: 600; color: #1a1a1a; display: flex; align-items: center; justify-content: center; margin: 0; border: none;">
-                                        <span id="cart-items-count">0</span> шт.
+                                    <div class="quantity-counter" style="width: 30%; display: flex; align-items: center; justify-content: center; background: #f5f5f5; border-radius: 8px 0 0 8px; margin: 0; border: none;">
+                                        <button class="quantity-btn minus-btn" onclick="decreaseQuantity()" style="background: none; border: none; font-size: 20px; font-weight: bold; color: #666; cursor: pointer; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease; opacity: 0.5;" disabled>-</button>
+                                        <span id="selected-quantity" style="padding: 0 16px; font-size: 16px; font-weight: 600; color: #1a1a1a; min-width: 40px; text-align: center;">1</span>
+                                        <button class="quantity-btn plus-btn" onclick="increaseQuantity()" style="background: none; border: none; font-size: 20px; font-weight: bold; color: #666; cursor: pointer; padding: 8px 12px; border-radius: 4px; transition: all 0.3s ease;">+</button>
                                     </div>
-                                    <button class="go-to-cart-button" onclick="goToCart()" style="width: 70%; background: #333333; color: #ffffff; border: none; padding: 18px 24px; border-radius: 0 8px 8px 0; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin: 0; margin-left: 0;">
+                                    <button class="go-to-cart-button" onclick="addToCart()" style="width: 70%; background: #333333; color: #ffffff; border: none; padding: 18px 24px; border-radius: 0 8px 8px 0; font-size: 16px; font-weight: 600; cursor: pointer; transition: all 0.3s ease; margin: 0; margin-left: 0;">
                                         Перейти в корзину
                                     </button>
                                 </div>
@@ -632,6 +609,265 @@
         // Состояние выбора
         let selectedColor = null;
         let selectedSize = null;
+        let selectedQuantity = 1;
+        
+        // Данные о вариантах товара (получаем из Jinja2)
+        const productVariants = {{ product.variants | tojson | safe }};
+        
+        // Функция для получения максимального доступного количества для выбранной комбинации
+        function getMaxAvailableQuantity(color, size) {
+            if (!productVariants) return 1;
+            
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            // Если у товара есть и цвет, и размер - ищем точную комбинацию
+            if (hasColors && hasSizes) {
+                for (const variant of productVariants) {
+                    if (variant.colors.includes(color) && variant.sizes.includes(size)) {
+                        return variant.stock || 1;
+                    }
+                }
+            }
+            
+            // Если у товара есть только цвет - ищем по цвету
+            if (hasColors && !hasSizes && color) {
+                for (const variant of productVariants) {
+                    if (variant.colors.includes(color)) {
+                        return variant.stock || 1;
+                    }
+                }
+            }
+            
+            // Если у товара есть только размер - ищем по размеру
+            if (!hasColors && hasSizes && size) {
+                for (const variant of productVariants) {
+                    if (variant.sizes.includes(size)) {
+                        return variant.stock || 1;
+                    }
+                }
+            }
+            
+            // Если у товара нет ни цвета, ни размера - берем общий stock
+            if (!hasColors && !hasSizes) {
+                const totalStock = productVariants.reduce((sum, variant) => sum + (variant.stock || 0), 0);
+                return totalStock || 1;
+            }
+            
+            return 1;
+        }
+        
+        // Функция для обновления доступности опций
+        function updateOptionAvailability() {
+            if (!productVariants) return;
+            
+            // Обновляем доступность цветов
+            document.querySelectorAll('.color-option').forEach(colorBtn => {
+                const color = colorBtn.dataset.color;
+                let hasAvailableSize = false;
+                
+                // Проверяем, есть ли доступные размеры для этого цвета
+                for (const variant of productVariants) {
+                    if (variant.colors.includes(color) && variant.stock > 0) {
+                        hasAvailableSize = true;
+                        break;
+                    }
+                }
+                
+                if (hasAvailableSize) {
+                    colorBtn.classList.remove('unavailable');
+                    colorBtn.disabled = false;
+                } else {
+                    colorBtn.classList.add('unavailable');
+                    colorBtn.disabled = true;
+                }
+            });
+            
+            // Обновляем доступность размеров
+            document.querySelectorAll('.size-option').forEach(sizeBtn => {
+                const size = sizeBtn.dataset.size;
+                let hasAvailableColor = false;
+                
+                // Проверяем, есть ли доступные цвета для этого размера
+                for (const variant of productVariants) {
+                    if (variant.sizes.includes(size) && variant.stock > 0) {
+                        hasAvailableColor = true;
+                        break;
+                    }
+                }
+                
+                if (hasAvailableColor) {
+                    sizeBtn.classList.remove('unavailable');
+                    sizeBtn.disabled = false;
+                } else {
+                    sizeBtn.classList.add('unavailable');
+                    sizeBtn.disabled = true;
+                }
+            });
+        }
+        
+        // Функция для обновления доступности опций с учетом уже выбранных
+        function updateOptionAvailabilityWithSelection() {
+            if (!productVariants) return;
+            
+            // Обновляем доступность цветов с учетом выбранного размера
+            document.querySelectorAll('.color-option').forEach(colorBtn => {
+                const color = colorBtn.dataset.color;
+                let isAvailable = false;
+                
+                if (selectedSize) {
+                    // Если размер уже выбран, проверяем только комбинации с этим размером
+                    for (const variant of productVariants) {
+                        if (variant.colors.includes(color) && variant.sizes.includes(selectedSize) && variant.stock > 0) {
+                            isAvailable = true;
+                            break;
+                        }
+                    }
+                } else {
+                    // Если размер не выбран, проверяем общую доступность цвета
+                    for (const variant of productVariants) {
+                        if (variant.colors.includes(color) && variant.stock > 0) {
+                            isAvailable = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (isAvailable) {
+                    colorBtn.classList.remove('unavailable');
+                    colorBtn.disabled = false;
+                } else {
+                    colorBtn.classList.add('unavailable');
+                    colorBtn.disabled = true;
+                }
+            });
+            
+            // Обновляем доступность размеров с учетом выбранного цвета
+            document.querySelectorAll('.size-option').forEach(sizeBtn => {
+                const size = sizeBtn.dataset.size;
+                let isAvailable = false;
+                
+                if (selectedColor) {
+                    // Если цвет уже выбран, проверяем только комбинации с этим цветом
+                    for (const variant of productVariants) {
+                        if (variant.sizes.includes(size) && variant.colors.includes(selectedColor) && variant.stock > 0) {
+                            isAvailable = true;
+                            break;
+                        }
+                    }
+                } else {
+                    // Если цвет не выбран, проверяем общую доступность размера
+                    for (const variant of productVariants) {
+                        if (variant.sizes.includes(size) && variant.stock > 0) {
+                            isAvailable = true;
+                            break;
+                        }
+                    }
+                }
+                
+                if (isAvailable) {
+                    sizeBtn.classList.remove('unavailable');
+                    sizeBtn.disabled = false;
+                } else {
+                    sizeBtn.classList.add('unavailable');
+                    sizeBtn.disabled = true;
+                }
+            });
+        }
+        
+
+        
+        // Функция для обновления лимитов количества
+        function updateQuantityLimits() {
+            const minusBtn = document.querySelector('.minus-btn');
+            const plusBtn = document.querySelector('.plus-btn');
+            const quantitySpan = document.getElementById('selected-quantity');
+            
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            // Проверяем, выбраны ли необходимые атрибуты
+            let canUpdateQuantity = true;
+            
+            if (hasColors && !selectedColor) {
+                canUpdateQuantity = false;
+            }
+            
+            if (hasSizes && !selectedSize) {
+                canUpdateQuantity = false;
+            }
+            
+            // Если атрибуты не выбраны, блокируем кнопки
+            if (!canUpdateQuantity) {
+                selectedQuantity = 1;
+                quantitySpan.textContent = selectedQuantity;
+                minusBtn.disabled = true;
+                plusBtn.disabled = true;
+                minusBtn.style.opacity = '0.5';
+                plusBtn.style.opacity = '0.5';
+                return;
+            }
+            
+            // Получаем максимальное доступное количество
+            const maxQuantity = getMaxAvailableQuantity(selectedColor, selectedSize);
+            
+            // Обновляем текущее количество, если оно превышает максимум
+            if (selectedQuantity > maxQuantity) {
+                selectedQuantity = maxQuantity;
+                quantitySpan.textContent = selectedQuantity;
+            }
+            
+            // Обновляем состояние кнопок
+            minusBtn.disabled = selectedQuantity <= 1;
+            plusBtn.disabled = selectedQuantity >= maxQuantity;
+            
+            // Обновляем прозрачность кнопок
+            minusBtn.style.opacity = selectedQuantity <= 1 ? '0.5' : '1';
+            plusBtn.style.opacity = selectedQuantity >= maxQuantity ? '0.5' : '1';
+        }
+        
+        // Функции для изменения количества
+        function increaseQuantity() {
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            // Проверяем, выбраны ли необходимые атрибуты
+            if (hasColors && !selectedColor) {
+                return;
+            }
+            
+            if (hasSizes && !selectedSize) {
+                return;
+            }
+            
+            // Получаем максимальное доступное количество
+            const maxQuantity = getMaxAvailableQuantity(selectedColor, selectedSize);
+            if (selectedQuantity < maxQuantity) {
+                selectedQuantity++;
+                document.getElementById('selected-quantity').textContent = selectedQuantity;
+                updateQuantityLimits();
+            }
+        }
+        
+        function decreaseQuantity() {
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            // Проверяем, выбраны ли необходимые атрибуты
+            if (hasColors && !selectedColor) {
+                return;
+            }
+            
+            if (hasSizes && !selectedSize) {
+                return;
+            }
+            
+            if (selectedQuantity > 1) {
+                selectedQuantity--;
+                document.getElementById('selected-quantity').textContent = selectedQuantity;
+                updateQuantityLimits();
+            }
+        }
 
         // Функция выбора цвета
         function selectColor(color) {
@@ -647,6 +883,10 @@
                     btn.classList.add('selected');
                 }
             });
+            
+            // Обновляем доступность опций и лимиты количества
+            updateOptionAvailabilityWithSelection();
+            updateQuantityLimits();
             
             checkCanAddToCart();
         }
@@ -665,6 +905,10 @@
                     btn.classList.add('selected');
                 }
             });
+            
+            // Обновляем доступность опций и лимиты количества
+            updateOptionAvailabilityWithSelection();
+            updateQuantityLimits();
             
             checkCanAddToCart();
         }
@@ -702,7 +946,35 @@
             addButton.textContent = message;
         }
 
-        // Добавление в корзину
+        // Показать селектор количества (не добавляет в корзину)
+        function showQuantitySelector() {
+            const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
+            const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
+            
+            // Проверяем, выбраны ли необходимые атрибуты
+            if (hasColors && !selectedColor) {
+                alert('Пожалуйста, выберите цвет');
+                return;
+            }
+            
+            if (hasSizes && !selectedSize) {
+                alert('Пожалуйста, выберите размер');
+                return;
+            }
+
+            // Переключаем кнопки - показываем селектор количества
+            document.getElementById('add-to-cart-btn').style.display = 'none';
+            document.getElementById('cart-after-add').style.display = 'block';
+            
+            // Сбрасываем количество к 1 при показе селектора
+            selectedQuantity = 1;
+            document.getElementById('selected-quantity').textContent = selectedQuantity;
+            
+            // Обновляем лимиты количества
+            updateQuantityLimits();
+        }
+
+        // Добавление в корзину (вызывается только при нажатии "Перейти в корзину")
         async function addToCart() {
             const hasColors = {% if product.available_colors %}true{% else %}false{% endif %};
             const hasSizes = {% if product.available_sizes %}true{% else %}false{% endif %};
@@ -723,34 +995,29 @@
                     headers: {
                         'Content-Type': 'application/json',
                     },
-                                    body: JSON.stringify({
-                    user_id: window.currentUserId || 'demo_user',
-                    product_id: '{{ product.original_id }}',
-                    color: selectedColor,
-                    size: selectedSize,
-                    quantity: 1
-                })
+                    body: JSON.stringify({
+                        user_id: window.currentUserId || 'demo_user',
+                        product_id: '{{ product.original_id }}',
+                        color: selectedColor,
+                        size: selectedSize,
+                        quantity: selectedQuantity || 1
+                    })
                 });
 
-                if (response.ok) {
-                    const result = await response.json();
-                    if (result.success) {
-                        // Обновляем счетчик корзины с сервера
-                        await updateCartCountFromServer();
-                        
-                        // Переключаем кнопки
-                        document.getElementById('add-to-cart-btn').style.display = 'none';
-                        document.getElementById('cart-after-add').style.display = 'block';
-                        
-                        // Обновляем количество товаров
-                        const cartCount = document.getElementById('cart-count').textContent;
-                        document.getElementById('cart-items-count').textContent = cartCount;
-                    } else {
-                        showMessage(result.message || 'Ошибка добавления в корзину', 'error');
-                    }
-                } else {
-                    showMessage('Ошибка добавления в корзину', 'error');
-                }
+                                            if (response.ok) {
+                                const result = await response.json();
+                                if (result.success) {
+                                    // Обновляем счетчик корзины с сервера
+                                    await updateCartCountFromServer();
+
+                                    // Переходим в корзину
+                                    window.location.href = '/cart';
+                                } else {
+                                    showMessage(result.message || 'Ошибка добавления в корзину', 'error');
+                                }
+                            } else {
+                                showMessage('Ошибка добавления в корзину', 'error');
+                            }
             } catch (error) {
                 console.error('Ошибка:', error);
                 showMessage('Ошибка добавления в корзину', 'error');
@@ -763,7 +1030,6 @@
             if (cartCountElement) {
                 cartCountElement.textContent = count;
             }
-            console.log('Счетчик корзины обновлен:', count);
         }
 
         // Показать сообщение
@@ -805,6 +1071,19 @@
             alert('Функция связи с поддержкой будет добавлена позже');
         }
 
+        function openTelegramChat() {
+            // Открываем чат с @valentinav4 в Telegram
+            const telegramUrl = 'https://t.me/valentinav4';
+            
+            // Если пользователь в Telegram WebApp, используем tg.openTelegramLink
+            if (window.Telegram && window.Telegram.WebApp) {
+                window.Telegram.WebApp.openTelegramLink(telegramUrl);
+            } else {
+                // Fallback для обычного браузера - открываем в новой вкладке
+                window.open(telegramUrl, '_blank');
+            }
+        }
+
         function toggleDescription() {
             const content = document.querySelector('.description-content');
             const button = document.querySelector('.read-more span');
@@ -835,6 +1114,9 @@
             
             // Загружаем количество товаров в корзине
             updateCartCountFromServer();
+            
+            // Обновляем доступность опций
+            updateOptionAvailabilityWithSelection();
             
             // Проверяем возможность добавления в корзину
             checkCanAddToCart();

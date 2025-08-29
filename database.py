@@ -16,7 +16,7 @@ class Database:
         # Таблица пользователей
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
-                user_id INTEGER PRIMARY KEY,
+                user_id TEXT PRIMARY KEY,
                 username TEXT,
                 first_name TEXT,
                 last_name TEXT,
@@ -30,15 +30,14 @@ class Database:
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS cart (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER,
+                user_id TEXT,
                 product_id TEXT,
                 product_name TEXT,
                 quantity INTEGER,
                 price REAL,
                 size TEXT,
                 image TEXT,
-                added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users (user_id)
+                added_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ''')
         
@@ -62,15 +61,14 @@ class Database:
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS orders (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                user_id INTEGER,
+                user_id TEXT,
                 order_number TEXT UNIQUE,
                 status TEXT DEFAULT 'new',
                 total_amount REAL,
                 items TEXT,
                 phone TEXT,
                 address TEXT,
-                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-                FOREIGN KEY (user_id) REFERENCES users (user_id)
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
             )
         ''')
         
@@ -104,6 +102,9 @@ class Database:
     
     def add_to_cart(self, user_id, product_id, product_name, quantity, price, size=None, color=None, image=None):
         """Добавление товара в корзину"""
+        # Отладочная информация
+        print(f"🗄️ База данных: добавление в корзину: user_id={user_id}, product_id={product_id}, quantity={quantity}, price={price}")
+        
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
@@ -118,11 +119,13 @@ class Database:
         if existing_item:
             # Обновляем количество
             new_quantity = existing_item[1] + quantity
+            print(f"🔄 Обновляем существующий товар: старый quantity={existing_item[1]}, новый quantity={new_quantity}")
             cursor.execute('''
                 UPDATE cart SET quantity = ? WHERE id = ?
             ''', (new_quantity, existing_item[0]))
         else:
             # Добавляем новый товар
+            print(f"➕ Добавляем новый товар: quantity={quantity}")
             cursor.execute('''
                 INSERT INTO cart (user_id, product_id, product_name, quantity, price, size, color, image)
                 VALUES (?, ?, ?, ?, ?, ?, ?, ?)
@@ -167,11 +170,26 @@ class Database:
     
     def remove_from_cart(self, user_id, product_id):
         """Удалить позицию из корзины"""
+        print(f"🗑️ Database.remove_from_cart: user_id={user_id}, product_id={product_id}")
+        print(f"🗑️ Типы данных: user_id={type(user_id)}, product_id={type(product_id)}")
+        
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
+        
+        # Проверяем, есть ли товар в корзине
+        cursor.execute('SELECT COUNT(*) FROM cart WHERE user_id = ? AND product_id = ?', (user_id, product_id))
+        count_before = cursor.fetchone()[0]
+        print(f"🗑️ Товаров в корзине до удаления: {count_before}")
+        
+        # Удаляем товар
         cursor.execute('DELETE FROM cart WHERE user_id = ? AND product_id = ?', (user_id, product_id))
+        deleted_rows = cursor.rowcount
+        print(f"🗑️ Удалено строк: {deleted_rows}")
+        
         conn.commit()
         conn.close()
+        
+        print(f"🗑️ Database.remove_from_cart завершено")
     
     def get_cart(self, user_id):
         """Получение корзины пользователя"""

@@ -1,6 +1,9 @@
 import aiohttp
 import time
 import re
+import requests
+import base64
+import logging
 from typing import List, Dict, Any, Optional
 
 class MoySkladAPI:
@@ -29,6 +32,9 @@ class MoySkladAPI:
         # Инициализация базы данных
         from database import Database
         self.db = Database()
+        
+        # Попытка обновить токен при инициализации
+        self._refresh_token_if_needed()
 
     def _is_cache_valid(self):
         """Проверка валидности кэша"""
@@ -108,6 +114,9 @@ class MoySkladAPI:
         """Получение информации о родительских товарах"""
         print("🛍️ Загружаем родительские товары...")
         
+        # Проверяем и обновляем токен при необходимости
+        self._refresh_token_if_needed()
+        
         if not self.api_token:
             print("⚠️ API токен МойСклад отсутствует")
             return []
@@ -132,6 +141,13 @@ class MoySkladAPI:
                             print(f"🔍 Первый товар: {first_item.get('name', 'Unknown')}")
                         
                         return data.get('rows', [])
+                    elif response.status == 401:
+                        print("🔄 Токен истек во время запроса, обновляем...")
+                        if self.refresh_token():
+                            # Повторяем запрос с новым токеном
+                            return await self._get_products_info()
+                        else:
+                            return []
                     else:
                         error_text = await response.text()
                         print(f"❌ Ошибка API МойСклад при получении товаров: {response.status}")
@@ -341,7 +357,7 @@ class MoySkladAPI:
                 elif product.get('productFolder') and product['productFolder'].get('name'):
                     category = product['productFolder']['name']
                 
-                # Извлекаем доступные размеры и цвета из модификаций
+                # Извлекаем доступные размеры и цвета из модификаций (показываем только варианты с остатками > 0)
                 available_sizes = []
                 available_colors = []
                 total_stock = 0
@@ -353,8 +369,8 @@ class MoySkladAPI:
                         variant_stock = stock_dict.get(variant_id, 0)
                         total_stock += variant_stock
                         
-                        # Извлекаем характеристики
-                        if variant.get('characteristics'):
+                        # Извлекаем характеристики только для вариантов с остатками > 0
+                        if variant_stock > 0 and variant.get('characteristics'):
                             for char in variant['characteristics']:
                                 char_name = char.get('name', '').lower()
                                 char_value = char.get('value', '')
@@ -366,14 +382,18 @@ class MoySkladAPI:
                                     if self._is_valid_color(char_value) and char_value not in available_colors:
                                         available_colors.append(char_value)
                     
-                    # Если нет характеристик, извлекаем из названий модификаций
+                    # Если нет характеристик, извлекаем из названий модификаций (только с остатками > 0)
                     if not available_sizes and not available_colors:
                         for variant in variants:
-                            name_modifications = self._extract_modifications(variant.get('name', ''))
-                            if name_modifications.get('size') and name_modifications['size'] not in available_sizes:
-                                available_sizes.append(name_modifications['size'])
-                            if name_modifications.get('color') and name_modifications['color'] not in available_colors:
-                                available_colors.append(name_modifications['color'])
+                            variant_id = variant.get('id')
+                            variant_stock = stock_dict.get(variant_id, 0)
+                            
+                            if variant_stock > 0:
+                                name_modifications = self._extract_modifications(variant.get('name', ''))
+                                if name_modifications.get('size') and name_modifications['size'] not in available_sizes:
+                                    available_sizes.append(name_modifications['size'])
+                                if name_modifications.get('color') and name_modifications['color'] not in available_colors:
+                                    available_colors.append(name_modifications['color'])
                 else:
                     # Если у товара нет вариантов, берем stock самого товара
                     total_stock = stock_dict.get(product_id, 0)
@@ -385,11 +405,15 @@ class MoySkladAPI:
                 elif product.get('salePrices') and product['salePrices']:
                     price = product['salePrices'][0].get('value', 0) / 100
                 
+                # Очищаем название товара от скобок
+                clean_name_modifications = self._extract_modifications(product.get('name', ''))
+                clean_name = clean_name_modifications.get('clean_name', product.get('name', ''))
+                
                 # Создаем товар
                 result_product = {
                     'id': product.get('name', ''),
                     'original_id': product_id,
-                    'name': product.get('name', ''),
+                    'name': clean_name,  # Используем очищенное название
                     'description': product.get('description', ''),
                     'article': product.get('article', ''),
                     'price': int(price),
@@ -402,10 +426,14 @@ class MoySkladAPI:
                     'variants': []  # Добавляем список модификаций
                 }
                 
-                # Добавляем модификации в товар
+                # Добавляем модификации в товар (показываем только варианты с остатками > 0)
                 for variant in variants:
                     variant_id = variant.get('id')
                     variant_stock = stock_dict.get(variant_id, 0)
+                    
+                    # Пропускаем варианты с остатками 0
+                    if variant_stock <= 0:
+                        continue
                     
                     variant_data = {
                         'id': variant_id,
@@ -573,9 +601,9 @@ class MoySkladAPI:
 
     def _extract_modifications(self, name):
         """Извлечение модификаций (размер и цвет) из названия товара"""
-        modifications = {'size': None, 'color': None}
+        modifications = {'size': None, 'color': None, 'clean_name': name}
         
-        # Ищем размеры в скобках или после запятой
+        # Ищем размеры в скобках или после запятой (все найденные в МойСклад)
         size_patterns = [
             r'\((\d{2,3})\)',  # (42), (44), (46)
             r',\s*(\d{2,3})\s*\)',  # , 42), , 44)
@@ -583,15 +611,20 @@ class MoySkladAPI:
             r'(\d{2,3})\s*размер',  # 42 размер
             r'\b(\d{2,3})\b',  # просто число 42, 44, 46
             r'\b(XS|S|M|L|XL|XXL)\b',  # буквенные размеры
-            r'\b(One\s*Size|OS|one\s*size|os)\b'  # One Size
+            r'\b(One\s*Size|OS|one\s*size|os)\b',  # One Size
+            r'\b(One\s*size|one\s*size)\b'  # Дополнительные варианты One size
         ]
         
-        # Ищем цвета
+        # Ищем цвета (все найденные в МойСклад)
         color_patterns = [
-            r'\(([^)]*?(?:белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый)[^)]*?)\)',
-            r',\s*([^)]*?(?:белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый)[^)]*?)\s*\)',
-            r'\b(белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый)\b',
-            r'\b(White|Black|Red|Blue|Green|Yellow|Pink|Orange|Purple|Brown|Grey|Gray|Cream|Beige|Burgundy|Khaki|Chocolate|Milk|Vanilla|Scarlet|Lilac|Lime|Bronze)\b'
+            # Русские цвета в скобках
+            r'\(([^)]*?(?:белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый|светло-серый|темно-серый)[^)]*?)\)',
+            # Русские цвета после запятой
+            r',\s*([^)]*?(?:белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый|светло-серый|темно-серый)[^)]*?)\s*\)',
+            # Русские цвета как отдельные слова
+            r'\b(белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый|светло-серый|темно-серый)\b',
+            # Английские цвета как отдельные слова
+            r'\b(White|Black|Red|Blue|Green|Yellow|Pink|Orange|Purple|Brown|Grey|Gray|Cream|Beige|Burgundy|Khaki|Chocolate|Milk|Vanilla|Scarlet|Lilac|Lime|Bronze|Bordo|Light-Beige|Dark-Green|Dark-Denim)\b'
         ]
         
         import re
@@ -616,6 +649,28 @@ class MoySkladAPI:
                     modifications['color'] = color
                     break
         
+        # Очищаем название от скобок с размерами и цветами
+        clean_name = name
+        # Убираем скобки с размерами
+        clean_name = re.sub(r'\(\s*\d{2,3}\s*\)', '', clean_name)
+        clean_name = re.sub(r'\(\s*(XS|S|M|L|XL|XXL)\s*\)', '', clean_name, flags=re.IGNORECASE)
+        clean_name = re.sub(r'\(\s*(One\s*Size|OS)\s*\)', '', clean_name, flags=re.IGNORECASE)
+        
+        # Убираем скобки с цветами (все найденные в МойСклад)
+        color_patterns_clean = [
+            r'\(\s*[^)]*?(?:белый|черный|красный|синий|зеленый|желтый|розовый|оранжевый|фиолетовый|коричневый|серый|голубой|бежевый|бордовый|хаки|шоколад|крем|молочный|ваниль|алый|лиловый|салатовый|бронзовый|светло-серый|темно-серый)[^)]*?\s*\)',
+            r'\(\s*[^)]*?(?:White|Black|Red|Blue|Green|Yellow|Pink|Orange|Purple|Brown|Grey|Gray|Cream|Beige|Burgundy|Khaki|Chocolate|Milk|Vanilla|Scarlet|Lilac|Lime|Bronze|Bordo|Light-Beige|Dark-Green|Dark-Denim)[^)]*?\s*\)'
+        ]
+        
+        for pattern in color_patterns_clean:
+            clean_name = re.sub(pattern, '', clean_name, flags=re.IGNORECASE)
+        
+        # Убираем запятые и лишние пробелы
+        clean_name = re.sub(r'\s*,\s*', ' ', clean_name)
+        clean_name = re.sub(r'\s+', ' ', clean_name)
+        clean_name = clean_name.strip()
+        
+        modifications['clean_name'] = clean_name
         return modifications
 
     def _is_valid_size(self, size):
@@ -625,10 +680,13 @@ class MoySkladAPI:
         
         size_lower = size.lower()
         
-        # Валидные размеры
+        # Валидные размеры (все найденные в МойСклад)
         valid_sizes = [
+            # Буквенные размеры
             'xs', 's', 'm', 'l', 'xl', 'xxl', 'xxxl',
-            'one size', 'os', 'one size',
+            # Универсальные размеры
+            'one size', 'os', 'one size', 'one size',
+            # Числовые размеры (женские)
             '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
             '40', '41', '42', '43', '44', '45', '46', '47', '48', '49', '50', '51', '52'
         ]
@@ -642,15 +700,19 @@ class MoySkladAPI:
         
         color_lower = color.lower()
         
-        # Валидные цвета
+        # Валидные цвета (все найденные в МойСклад)
         valid_colors = [
+            # Русские цвета
             'белый', 'черный', 'красный', 'синий', 'зеленый', 'желтый', 'розовый', 
             'оранжевый', 'фиолетовый', 'коричневый', 'серый', 'голубой', 'бежевый', 
             'бордовый', 'хаки', 'шоколад', 'крем', 'молочный', 'ваниль', 'алый', 
             'лиловый', 'салатовый', 'бронзовый', 'светло-серый', 'темно-серый',
+            # Английские цвета
             'white', 'black', 'red', 'blue', 'green', 'yellow', 'pink', 'orange', 
             'purple', 'brown', 'grey', 'gray', 'cream', 'beige', 'burgundy', 'khaki', 
-            'chocolate', 'milk', 'vanilla', 'scarlet', 'lilac', 'lime', 'bronze'
+            'chocolate', 'milk', 'vanilla', 'scarlet', 'lilac', 'lime', 'bronze',
+            # Дополнительные варианты
+            'bordo', 'light-beige', 'dark-green', 'dark-denim'
         ]
         
         return color_lower in valid_colors
@@ -756,3 +818,95 @@ class MoySkladAPI:
                 'category': 'electronics'
             }
         ]
+
+    def _get_basic_auth_header(self):
+        """Получение заголовка Basic Auth для МойСклад"""
+        from config import MOYSKLAD_LOGIN, MOYSKLAD_PASSWORD
+        
+        if not MOYSKLAD_LOGIN or not MOYSKLAD_PASSWORD:
+            print("⚠️ Данные для Basic Auth МойСклад не настроены")
+            return None
+            
+        credentials = f"{MOYSKLAD_LOGIN}:{MOYSKLAD_PASSWORD}"
+        encoded_credentials = base64.b64encode(credentials.encode()).decode()
+        return {'Authorization': f'Basic {encoded_credentials}'}
+
+    def get_access_token(self):
+        """Получение нового access token от МойСклад"""
+        url = "https://api.moysklad.ru/api/remap/1.2/security/token"
+        headers = self._get_basic_auth_header()
+        
+        if not headers:
+            print("❌ Не удалось создать заголовки Basic Auth")
+            return None
+            
+        try:
+            print("🔄 Получаем новый токен от МойСклад...")
+            resp = requests.post(url, headers=headers)
+            
+            if resp.status_code // 100 != 2:
+                print(f"❌ Ошибка получения токена MoySklad: {resp.status_code} {resp.text}")
+                return None
+                
+            data = resp.json()
+            new_token = data.get("access_token")
+            
+            if new_token:
+                print(f"✅ Получен новый токен: {new_token[:20]}...")
+                return new_token
+            else:
+                print("❌ Токен не найден в ответе")
+                return None
+                
+        except Exception as e:
+            print(f"💥 Ошибка при получении токена: {e}")
+            return None
+
+    def _refresh_token_if_needed(self):
+        """Обновление токена при необходимости"""
+        try:
+            # Проверяем, работает ли текущий токен
+            test_url = f"{self.base_url}/entity/product?limit=1"
+            test_response = requests.get(test_url, headers=self.headers)
+            
+            if test_response.status_code == 401:
+                print("🔄 Токен истек, получаем новый...")
+                new_token = self.get_access_token()
+                
+                if new_token:
+                    self.api_token = new_token
+                    self.headers['Authorization'] = f'Bearer {new_token}'
+                    print("✅ Токен обновлен")
+                    
+                    # Обновляем конфигурацию
+                    from config import MOYSKLAD_API_TOKEN
+                    import config
+                    config.MOYSKLAD_API_TOKEN = new_token
+                else:
+                    print("❌ Не удалось обновить токен")
+            else:
+                print("✅ Токен работает корректно")
+                
+        except Exception as e:
+            print(f"💥 Ошибка при проверке токена: {e}")
+
+    def refresh_token(self):
+        """Принудительное обновление токена"""
+        print("🔄 Принудительное обновление токена...")
+        new_token = self.get_access_token()
+        
+        if new_token:
+            self.api_token = new_token
+            self.headers['Authorization'] = f'Bearer {new_token}'
+            print("✅ Токен обновлен")
+            
+            # Обновляем конфигурацию
+            import config
+            config.MOYSKLAD_API_TOKEN = new_token
+            
+            # Очищаем кэш для перезагрузки данных
+            self.clear_cache()
+            return True
+        else:
+            print("❌ Не удалось обновить токен")
+            return False

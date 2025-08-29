@@ -69,6 +69,13 @@ async def cart_page(request: Request):
         "currency": "₽"
     })
 
+@app.get("/test-cart", response_class=HTMLResponse)
+async def test_cart_page(request: Request):
+    """Тестовая страница корзины"""
+    return templates.TemplateResponse("cart_simple.html", {
+        "request": request
+    })
+
 @app.post("/api/add-to-cart")
 async def add_to_cart(request: Request):
     """API для добавления товара в корзину"""
@@ -79,6 +86,9 @@ async def add_to_cart(request: Request):
     color = data.get('color')  # Добавляем цвет
     size = data.get('size')    # Добавляем размер
     quantity = data.get('quantity', 1)
+    
+    # Отладочная информация
+    print(f"🔍 Добавление в корзину: user_id={user_id}, product_id={product_id}, color={color}, size={size}, quantity={quantity}")
     
     if not product_id:
         raise HTTPException(status_code=400, detail="Product ID required")
@@ -226,7 +236,8 @@ async def get_categories_with_products():
         # Сортируем по количеству товаров (убывание)
         categories_with_products.sort(key=lambda x: x['product_count'], reverse=True)
         
-        print(f"Категории с товарами: {[f'{cat['name']}({cat['product_count']})' for cat in categories_with_products]}")
+        category_names = [f"{cat['name']}({cat['product_count']})" for cat in categories_with_products]
+        print(f"Категории с товарами: {category_names}")
         
         return {"categories": categories_with_products}
     except Exception as e:
@@ -346,16 +357,81 @@ async def remove_from_cart(data: dict):
         user_id = data.get('user_id')
         product_id = data.get('product_id')
         
+        print(f"🔍 Удаление из корзины: user_id={user_id}, product_id={product_id}")
+        print(f"🔍 Типы данных: user_id={type(user_id)}, product_id={type(product_id)}")
+        
         if not user_id or not product_id:
             raise HTTPException(status_code=400, detail="User ID and Product ID required")
         
-        # Удаляем товар из корзины
+        # Удаляем товар из корзины (product_id может содержать вариант)
+        print(f"🗑️ Вызываем db.remove_from_cart с user_id={user_id}, product_id={product_id}")
         db.remove_from_cart(user_id, product_id)
         
+        print(f"✅ Товар успешно удален из корзины")
         return {"success": True, "message": "Товар удален из корзины"}
         
     except Exception as e:
         print(f"❌ Ошибка удаления из корзины: {e}")
+        import traceback
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=str(e))
+
+@app.post("/api/update-cart-quantity")
+async def update_cart_quantity(data: dict):
+    """Обновление количества товара в корзине"""
+    try:
+        user_id = data.get('user_id')
+        product_id = data.get('product_id')
+        quantity = data.get('quantity')
+        
+        print(f"🔍 Обновление количества: user_id={user_id}, product_id={product_id}, quantity={quantity}")
+        
+        if not user_id or not product_id or quantity is None:
+            raise HTTPException(status_code=400, detail="User ID, Product ID and Quantity required")
+        
+        if quantity <= 0:
+            # Если количество 0 или меньше, удаляем товар из корзины
+            print(f"🗑️ Количество <= 0, удаляем товар из корзины")
+            db.remove_from_cart(user_id, product_id)
+            return {"success": True, "message": "Товар удален из корзины"}
+        
+        # Проверяем, не превышает ли количество доступные остатки
+        try:
+            # Получаем информацию о товаре для проверки остатков
+            products = await moysklad.get_products(limit=1000, offset=0)
+            base_product_id = product_id.split('_')[0] if '_' in product_id else product_id
+            
+            product = next((p for p in products if p.get('original_id') == base_product_id), None)
+            if product and '_' in product_id:
+                parts = product_id.split('_')
+                if len(parts) >= 3:  # original_id_color_size
+                    variant_color = parts[1]
+                    variant_size = parts[2]
+                    
+                    # Ищем конкретный вариант
+                    variant_stock = 0
+                    for variant in product.get('variants', []):
+                        if (variant_color in variant.get('colors', []) and 
+                            variant_size in variant.get('sizes', [])):
+                            variant_stock = variant.get('stock', 0)
+                            break
+                    
+                    if quantity > variant_stock:
+                        raise HTTPException(status_code=400, detail=f"Недостаточно товара. Доступно: {variant_stock}")
+                    
+                    print(f"✅ Проверка остатков: variant stock {variant_stock}, requested {quantity}")
+        except Exception as e:
+            print(f"⚠️ Предупреждение при проверке остатков: {e}")
+            # Продолжаем выполнение, если не удалось проверить остатки
+        
+        # Обновляем количество в корзине
+        print(f"🔄 Обновляем количество в корзине на {quantity}")
+        db.set_cart_quantity(user_id, product_id, quantity)
+        
+        return {"success": True, "message": "Количество обновлено", "quantity": quantity}
+        
+    except Exception as e:
+        print(f"❌ Ошибка обновления количества в корзине: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
 @app.post("/api/refresh-products")
@@ -372,19 +448,49 @@ async def refresh_products():
 async def get_product(product_id: str):
     """Получение товара по ID"""
     try:
+        print(f"🔍 Получение товара: product_id={product_id}")
+        
         # Получаем все товары и ищем нужный по оригинальному ID
         products = await moysklad.get_products(limit=1000, offset=0)
         
         # Ищем товар по оригинальному ID
+        # product_id может быть в формате "original_id" или "original_id_size"
+        base_product_id = product_id.split('_')[0] if '_' in product_id else product_id
+        print(f"🔍 Ищем товар с base_product_id={base_product_id}")
+        
         product = None
         for p in products:
-            if p.get('original_id') == product_id:
+            if p.get('original_id') == base_product_id:
                 product = p
                 break
         
         if product:
+            # Если product_id содержит информацию о варианте (цвет/размер), 
+            # вычисляем правильный остаток для этого варианта
+            if '_' in product_id:
+                parts = product_id.split('_')
+                if len(parts) >= 3:  # original_id_color_size
+                    variant_color = parts[1]
+                    variant_size = parts[2]
+                    
+                    # Ищем конкретный вариант
+                    variant_stock = 0
+                    for variant in product.get('variants', []):
+                        if (variant_color in variant.get('colors', []) and 
+                            variant_size in variant.get('sizes', [])):
+                            variant_stock = variant.get('stock', 0)
+                            break
+                    
+                    # Создаем копию продукта с правильным остатком для варианта
+                    product_copy = product.copy()
+                    product_copy['stock'] = variant_stock
+                    print(f"✅ Товар найден: {product_copy.get('name', 'Unknown')}, variant stock: {variant_stock} (color: {variant_color}, size: {variant_size})")
+                    return {"product": product_copy}
+            
+            print(f"✅ Товар найден: {product.get('name', 'Unknown')}, stock: {product.get('stock', 0)}")
             return {"product": product}
         else:
+            print(f"❌ Товар не найден с ID: {base_product_id}")
             raise HTTPException(status_code=404, detail="Product not found")
     except Exception as e:
         print(f"Ошибка получения товара: {e}")

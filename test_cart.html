@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест корзины</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-button { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            margin: 10px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+        .test-button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Тест корзины</h1>
+    
+    <button class="test-button" onclick="testSimple()">
+        🧪 Простой тест
+    </button>
+    
+    <button class="test-button" onclick="testMinusClick('test-product-123', 1)">
+        ➖ Тест кнопки минус
+    </button>
+    
+    <div id="output" style="margin-top: 20px; padding: 10px; background: #f8f9fa; border-radius: 5px;">
+        <strong>Вывод:</strong> <span id="output-text">Нажмите кнопку для теста</span>
+    </div>
+
+    <script>
+        function testSimple() {
+            console.log('🧪 Простой тест работает!');
+            document.getElementById('output-text').textContent = 'Простой тест работает!';
+            alert('Простой тест работает!');
+        }
+
+        function testMinusClick(productId, currentQuantity) {
+            console.log('🧪 testMinusClick вызвана!');
+            console.log('  • productId:', productId);
+            console.log('  • currentQuantity:', currentQuantity);
+            
+            const output = `Кнопка минус работает! productId: ${productId}, quantity: ${currentQuantity}`;
+            document.getElementById('output-text').textContent = output;
+            alert(output);
+        }
+
+        // Проверяем, что JavaScript загрузился
+        console.log('✅ JavaScript загружен и работает!');
+        document.getElementById('output-text').textContent = 'JavaScript загружен и работает!';
+    </script>
+</body>
+</html>

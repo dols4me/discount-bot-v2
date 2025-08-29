@@ -1,0 +1,2103 @@
+{
+  "total_products": 941,
+  "total_colors": 49,
+  "total_sizes": 27,
+  "colors": [
+    "Beige",
+    "Black",
+    "Blue",
+    "Bordo",
+    "Brown",
+    "Burgundy",
+    "Chocolate",
+    "Cream",
+    "Green",
+    "Grey",
+    "Khaki",
+    "Lime",
+    "Milk",
+    "Orange",
+    "Pink",
+    "Red",
+    "White",
+    "Yellow",
+    "beige",
+    "black",
+    "blue",
+    "green",
+    "grey",
+    "pink",
+    "red",
+    "white",
+    "Алый",
+    "Бежевый",
+    "Белый",
+    "Бронзовый",
+    "Ваниль",
+    "Голубой",
+    "Желтый",
+    "Зеленый",
+    "Коричневый",
+    "Красный",
+    "Лиловый",
+    "Оранжевый",
+    "Розовый",
+    "Салатовый",
+    "Светло-Серый",
+    "Серый",
+    "Синий",
+    "Хаки",
+    "Черный",
+    "Шоколад",
+    "белый",
+    "хаки",
+    "черный"
+  ],
+  "sizes": [
+    "28",
+    "29",
+    "31",
+    "32",
+    "34",
+    "36",
+    "38",
+    "40",
+    "42",
+    "44",
+    "46",
+    "48",
+    "50",
+    "L",
+    "M",
+    "OS",
+    "One Size",
+    "One size",
+    "S",
+    "XL",
+    "XS",
+    "m",
+    "one size",
+    "os",
+    "s",
+    "xl",
+    "xs"
+  ],
+  "combinations": [
+    {
+      "product": "Джинсы Mom Fit grey",
+      "variant": "Джинсы Mom Fit grey (36)",
+      "color": "grey",
+      "size": "36",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (one size, Grey)",
+      "color": "Grey",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (one size, Bordo)",
+      "color": "Bordo",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Жакет ITCL",
+      "variant": "Жакет ITCL (Burgundy, 44)",
+      "color": "Burgundy",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Жакет ITCL",
+      "variant": "Жакет ITCL (Burgundy, 46)",
+      "color": "Burgundy",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Брюки ITCL",
+      "variant": "Брюки ITCL (Burgundy, 42)",
+      "color": "Burgundy",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Брюки ITCL",
+      "variant": "Брюки ITCL (Burgundy, 44)",
+      "color": "Burgundy",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Брюки ITCL",
+      "variant": "Брюки ITCL (Burgundy, 46)",
+      "color": "Burgundy",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Брюки ITCL",
+      "variant": "Брюки ITCL (Burgundy, 48)",
+      "color": "Burgundy",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Поло",
+      "variant": "Поло (Black, os)",
+      "color": "Black",
+      "size": "os",
+      "stock": 0
+    },
+    {
+      "product": "Поло",
+      "variant": "Поло (Blue, os)",
+      "color": "Blue",
+      "size": "os",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер Strawberry",
+      "variant": "Джемпер Strawberry (Черный, one size)",
+      "color": "Черный",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка женская",
+      "variant": "Футболка женская (Белый, One Size)",
+      "color": "Белый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка женская",
+      "variant": "Футболка женская (Черный, One Size)",
+      "color": "Черный",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Футболка женская Heart",
+      "variant": "Футболка женская Heart (Белый, L)",
+      "color": "Белый",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Футболка женская Heart",
+      "variant": "Футболка женская Heart (Серый, S)",
+      "color": "Серый",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Футболка женская",
+      "variant": "Футболка женская (Синий, One Size)",
+      "color": "Синий",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Комплект 2-х предметный из сетки Gucci",
+      "variant": "Комплект 2-х предметный из сетки Gucci (Бежевый, 42)",
+      "color": "Бежевый",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Белый, One Size)",
+      "color": "Белый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Лиловый, One Size)",
+      "color": "Лиловый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское из вискозы ITCL",
+      "variant": "Платье женское из вискозы ITCL (Cream, 42)",
+      "color": "Cream",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Бомбер ITCL",
+      "variant": "Бомбер ITCL (blue, one size)",
+      "color": "blue",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Лонгсли YOU",
+      "variant": "Лонгсли YOU (Алый, one size)",
+      "color": "Алый",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Юбка женская",
+      "variant": "Юбка женская (Красный, 46)",
+      "color": "Красный",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Платье из шерсти Loro Piana",
+      "variant": "Платье из шерсти Loro Piana (Black, One Size)",
+      "color": "Black",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Свитшот укороченный из футера Red",
+      "variant": "Свитшот укороченный из футера Red (One Size)",
+      "color": "Red",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Худи by Korea",
+      "variant": "Худи by Korea (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Комплект Garment",
+      "variant": "Комплект Garment (Бежевый, 42)",
+      "color": "Бежевый",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Комплект Garment",
+      "variant": "Комплект Garment (Розовый, 44)",
+      "color": "Розовый",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Black",
+      "variant": "Джинсы  Black (40)",
+      "color": "Black",
+      "size": "40",
+      "stock": 1
+    },
+    {
+      "product": "Брюки Black",
+      "variant": "Брюки  Black (36)",
+      "color": "Black",
+      "size": "36",
+      "stock": 1
+    },
+    {
+      "product": "Брюки Black",
+      "variant": "Брюки  Black (38)",
+      "color": "Black",
+      "size": "38",
+      "stock": 1
+    },
+    {
+      "product": "Брюки Black",
+      "variant": "Брюки  Black (40)",
+      "color": "Black",
+      "size": "40",
+      "stock": 2
+    },
+    {
+      "product": "Костюм футболка и шорты",
+      "variant": "Костюм футболка и шорты (Зеленый, L)",
+      "color": "Зеленый",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Брюки маркировка",
+      "variant": "Брюки маркировка (42, белый)",
+      "color": "белый",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Брюки маркировка",
+      "variant": "Брюки маркировка (44, белый)",
+      "color": "белый",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Брюки маркировка",
+      "variant": "Брюки маркировка (46, белый)",
+      "color": "белый",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Пальто из Итальянской шерсти и вискозы Chocolate",
+      "variant": "Пальто из Итальянской шерсти и вискозы Chocolate (42)",
+      "color": "Chocolate",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Пальто из Итальянской шерсти и вискозы Chocolate",
+      "variant": "Пальто из Итальянской шерсти и вискозы Chocolate (46)",
+      "color": "Chocolate",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Пальто из Итальянской шерсти и вискозы Chocolate",
+      "variant": "Пальто из Итальянской шерсти и вискозы Chocolate (48)",
+      "color": "Chocolate",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Пальто из Итальянской шерсти и вискозы Chocolate",
+      "variant": "Пальто из Итальянской шерсти и вискозы Chocolate (50)",
+      "color": "Chocolate",
+      "size": "50",
+      "stock": 0
+    },
+    {
+      "product": "Лонгслив из трикотажа",
+      "variant": "Лонгслив из трикотажа (Pink, One Size)",
+      "color": "Pink",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив в рубчик из трикотажа",
+      "variant": "Лонгслив в рубчик из трикотажа (Pink, One Size)",
+      "color": "Pink",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (White, 42)",
+      "color": "White",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (White, 44)",
+      "color": "White",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (White, 46)",
+      "color": "White",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (Black, 44)",
+      "color": "Black",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES",
+      "variant": "Футболка из мерсерезированного хлопка умеренного over фасона с надписью YES (Black, 46)",
+      "color": "Black",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Cardigan Pesok 25",
+      "variant": "Cardigan Pesok 25 (Beige, one size)",
+      "color": "Beige",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Cardigan Pesok 25",
+      "variant": "Cardigan Pesok 25 (Blue, one size)",
+      "color": "Blue",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Cardigan Pesok 25",
+      "variant": "Cardigan Pesok 25 (Yellow, one size)",
+      "color": "Yellow",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Топ из Lycra Soft",
+      "variant": "Топ из Lycra Soft (Бежевый, 42)",
+      "color": "Бежевый",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Топ из Lycra Soft",
+      "variant": "Топ из Lycra Soft (Бежевый, 44)",
+      "color": "Бежевый",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Блуза из шелка ITCL",
+      "variant": "Блуза из шелка ITCL (Ваниль, one size)",
+      "color": "Ваниль",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Юбка из вискозы",
+      "variant": "Юбка из вискозы (46, Chocolate)",
+      "color": "Chocolate",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Юбка из вискозы",
+      "variant": "Юбка из вискозы (42, Chocolate)",
+      "color": "Chocolate",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Юбка из вискозы",
+      "variant": "Юбка из вискозы (44, Chocolate)",
+      "color": "Chocolate",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер удлиненный с воротом",
+      "variant": "Джемпер удлиненный с воротом (Bordo, One Size)",
+      "color": "Bordo",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер удлиненный с воротом",
+      "variant": "Джемпер удлиненный с воротом (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Куртка/жилет Korea",
+      "variant": "Куртка/жилет Korea (L, Зеленый)",
+      "color": "Зеленый",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Куртка/жилет Korea",
+      "variant": "Куртка/жилет Korea (xl, Зеленый)",
+      "color": "Зеленый",
+      "size": "xl",
+      "stock": 2
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Black, OS)",
+      "color": "Black",
+      "size": "OS",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Green, OS)",
+      "color": "Green",
+      "size": "OS",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский 2-х предметный",
+      "variant": "Костюм женский 2-х предметный (Черный, 44)",
+      "color": "Черный",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Костюм COS Khaki шорты и рубашка из льна",
+      "variant": "Костюм COS Khaki шорты и рубашка из льна (L)",
+      "color": "Khaki",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Лонгслив Croshe Uniq",
+      "variant": "Лонгслив Croshe Uniq (Grey, one size)",
+      "color": "Grey",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Лонгслив Croshe Uniq",
+      "variant": "Лонгслив Croshe Uniq (Beige, one size)",
+      "color": "Beige",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Croshe Uniq",
+      "variant": "Футболка Croshe Uniq (Beige, one size)",
+      "color": "Beige",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Футболка Croshe Uniq",
+      "variant": "Футболка Croshe Uniq (Milk, one size)",
+      "color": "Milk",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Платье Fabric",
+      "variant": "Платье Fabric (Beige, one size)",
+      "color": "Beige",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Розовый, One size)",
+      "color": "Розовый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Черный, One size)",
+      "color": "Черный",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Оранжевый, S)",
+      "color": "Оранжевый",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Оранжевый, M)",
+      "color": "Оранжевый",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Оранжевый, L)",
+      "color": "Оранжевый",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский",
+      "variant": "Костюм женский (Розовый, S)",
+      "color": "Розовый",
+      "size": "S",
+      "stock": 0
+    },
+    {
+      "product": "Костюм женский льняной",
+      "variant": "Костюм женский льняной (Бежевый, M)",
+      "color": "Бежевый",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Костюм женский льняной",
+      "variant": "Костюм женский льняной (Оранжевый, M)",
+      "color": "Оранжевый",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское YL",
+      "variant": "Платье женское YL (Салатовый, L)",
+      "color": "Салатовый",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Брюки из льня Burgundy",
+      "variant": "Брюки из льня Burgundy (One size)",
+      "color": "Burgundy",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Розовый, One size)",
+      "color": "Розовый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Черный, One size)",
+      "color": "Черный",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское",
+      "variant": "Платье женское (Голубой, One size)",
+      "color": "Голубой",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье женское Boho",
+      "variant": "Платье женское Boho (Бежевый, One size)",
+      "color": "Бежевый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Donald",
+      "variant": "Футболка Donald (Зеленый, One size)",
+      "color": "Зеленый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Donald",
+      "variant": "Футболка Donald (Салатовый, One size)",
+      "color": "Салатовый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Donald",
+      "variant": "Футболка Donald (Белый, One size)",
+      "color": "Белый",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка принт",
+      "variant": "Футболка принт (Белый, One size)",
+      "color": "Белый",
+      "size": "One size",
+      "stock": 2
+    },
+    {
+      "product": "Футболка принт",
+      "variant": "Футболка принт (Черный, One size)",
+      "color": "Черный",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Бомбер ITCL",
+      "variant": "Бомбер ITCL (Алый, one size)",
+      "color": "Алый",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Бомбер ITCL",
+      "variant": "Бомбер ITCL (Черный, one size)",
+      "color": "Черный",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Комплект 2-ух предметный",
+      "variant": "Комплект 2-ух предметный (Beige, One Size)",
+      "color": "Beige",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala",
+      "variant": "Платье Sabrina Scala (48, Черный)",
+      "color": "Черный",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala",
+      "variant": "Платье Sabrina Scala (48, Светло-Серый)",
+      "color": "Светло-Серый",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala",
+      "variant": "Платье Sabrina Scala (50, Светло-Серый)",
+      "color": "Светло-Серый",
+      "size": "50",
+      "stock": 1
+    },
+    {
+      "product": "Блуза синяя Emily FLOWERS",
+      "variant": "Блуза синяя Emily FLOWERS (Синий, 44)",
+      "color": "Синий",
+      "size": "44",
+      "stock": 2
+    },
+    {
+      "product": "Пальто Mariyello",
+      "variant": "Пальто Mariyello (Черно-Белый, 44)",
+      "color": "Белый",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala кружево D&G",
+      "variant": "Платье Sabrina Scala кружево D&G (Black, 44)",
+      "color": "Black",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala кружево D&G",
+      "variant": "Платье Sabrina Scala кружево D&G (Black, 48)",
+      "color": "Black",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Платье Sabrina Scala кружево D&G",
+      "variant": "Платье Sabrina Scala кружево D&G (Black, 50)",
+      "color": "Black",
+      "size": "50",
+      "stock": 2
+    },
+    {
+      "product": "Платье Sabrina Scala кружево D&G",
+      "variant": "Платье Sabrina Scala кружево D&G (Cream, 44)",
+      "color": "Cream",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Платье Sabrina Scala кружево D&G",
+      "variant": "Платье Sabrina Scala кружево D&G (Cream, 48)",
+      "color": "Cream",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Пальто на запах",
+      "variant": "Пальто на запах (хаки, 44)",
+      "color": "хаки",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Пальто",
+      "variant": "Пальто (Серый, 46)",
+      "color": "Серый",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Платье",
+      "variant": "Платье (Розовый, 46)",
+      "color": "Розовый",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Комплект 2х предметный \"Твид\"",
+      "variant": "Комплект 2х предметный \"Твид\" (черный) (M)",
+      "color": "черный",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Юбка \"Stefanel\"",
+      "variant": "Юбка \"Stefanel\" (Черный, 44)",
+      "color": "Черный",
+      "size": "44",
+      "stock": 2
+    },
+    {
+      "product": "Блуза с галстуком",
+      "variant": "Блуза с галстуком (Черный, 42)",
+      "color": "Черный",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Блуза с галстуком",
+      "variant": "Блуза с галстуком (Черный, 44)",
+      "color": "Черный",
+      "size": "44",
+      "stock": 2
+    },
+    {
+      "product": "Юбка Sabrina Scala кружево",
+      "variant": "Юбка Sabrina Scala кружево (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Юбка Sabrina Scala кружево",
+      "variant": "Юбка Sabrina Scala кружево (Black, 50)",
+      "color": "Black",
+      "size": "50",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Mom fit blue",
+      "variant": "Джинсы Mom fit blue (36)",
+      "color": "blue",
+      "size": "36",
+      "stock": 2
+    },
+    {
+      "product": "Футболка",
+      "variant": "Футболка (Beige, L)",
+      "color": "Beige",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Футболка",
+      "variant": "Футболка (White, M)",
+      "color": "White",
+      "size": "M",
+      "stock": 0
+    },
+    {
+      "product": "Свитшот M&Q Heart",
+      "variant": "Свитшот M&Q Heart (Black, One Size)",
+      "color": "Black",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер",
+      "variant": "Джемпер (Бежевый, One Size)",
+      "color": "Бежевый",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Джемпер",
+      "variant": "Джемпер (Серый, One Size)",
+      "color": "Серый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Брюки с разрезом",
+      "variant": "Брюки с разрезом (Черный, 44)",
+      "color": "Черный",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Комплект 2-х предметный Barbie",
+      "variant": "Комплект 2-х предметный Barbie (Голубой, 44)",
+      "color": "Голубой",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Комплект 2-х предметный Barbie",
+      "variant": "Комплект 2-х предметный Barbie (Розовый, 44)",
+      "color": "Розовый",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Кардиган by M.R",
+      "variant": "Кардиган by M.R (Бежевый, One Size)",
+      "color": "Бежевый",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Пальто двубортное",
+      "variant": "Пальто двубортное (Black, 48)",
+      "color": "Black",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Пальто двубортное",
+      "variant": "Пальто двубортное (Beige, 50)",
+      "color": "Beige",
+      "size": "50",
+      "stock": 1
+    },
+    {
+      "product": "Пальто двубортное",
+      "variant": "Пальто двубортное (Black, 50)",
+      "color": "Black",
+      "size": "50",
+      "stock": 1
+    },
+    {
+      "product": "Пальто на запах",
+      "variant": "Пальто на запах (44, клетка Beige)",
+      "color": "Beige",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Wide lag black",
+      "variant": "Джинсы Wide lag black (34)",
+      "color": "black",
+      "size": "34",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Wide lag black",
+      "variant": "Джинсы Wide lag black (40)",
+      "color": "black",
+      "size": "40",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Wide lag black",
+      "variant": "Джинсы Wide lag black (42)",
+      "color": "black",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Юбка атласная макси",
+      "variant": "Юбка атласная макси (48, Grey)",
+      "color": "Grey",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Юбка атласная макси",
+      "variant": "Юбка атласная макси (Black, 48)",
+      "color": "Black",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Юбка атласная макси",
+      "variant": "Юбка атласная макси (Grey, 50)",
+      "color": "Grey",
+      "size": "50",
+      "stock": 0
+    },
+    {
+      "product": "Укороченный жакет School",
+      "variant": "Укороченный жакет School (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Укороченный жакет School",
+      "variant": "Укороченный жакет School (Beige, 44)",
+      "color": "Beige",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Укороченный жакет School",
+      "variant": "Укороченный жакет School (Black, 44)",
+      "color": "Black",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Юбка School",
+      "variant": "Юбка School (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер mini",
+      "variant": "Джемпер mini (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив Graffiti by Korea",
+      "variant": "Лонгслив Graffiti by Korea (Серый, One Size)",
+      "color": "Серый",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Брюки slim",
+      "variant": "Брюки slim (Grey, M)",
+      "color": "Grey",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Брюки slim",
+      "variant": "Брюки slim (Grey, S)",
+      "color": "Grey",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Пальто Leo",
+      "variant": "Пальто Leo (Brown, 40)",
+      "color": "Brown",
+      "size": "40",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Cosmic Wide lag",
+      "variant": "Джинсы Cosmic Wide lag (Black, M)",
+      "color": "Black",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Костюм Monochrome",
+      "variant": "Костюм Monochrome (Черный, One Size)",
+      "color": "Черный",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Лонгслив Diamonds",
+      "variant": "Лонгслив Diamonds (Белый, One Size)",
+      "color": "Белый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка The Bow red",
+      "variant": "Футболка The Bow red (One Size)",
+      "color": "red",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Водолазка Viscosa",
+      "variant": "Водолазка Viscosa (Синий, One Size)",
+      "color": "Синий",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Комплект 2-х предметный Leather Grey",
+      "variant": "Комплект 2-х предметный Leather Grey (One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Футболка",
+      "variant": "Футболка (Red, L)",
+      "color": "Red",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Футболка",
+      "variant": "Футболка (Red, S)",
+      "color": "Red",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Платье мини из вискозы Sindy",
+      "variant": "Платье мини из вискозы Sindy (Черный, One Size)",
+      "color": "Черный",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Топ Rocher",
+      "variant": "Топ Rocher (42, Белый)",
+      "color": "Белый",
+      "size": "42",
+      "stock": 2
+    },
+    {
+      "product": "Топ Rocher",
+      "variant": "Топ Rocher (42, Черный)",
+      "color": "Черный",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Топ Rocher",
+      "variant": "Топ Rocher (44, Черный)",
+      "color": "Черный",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Топ Rocher",
+      "variant": "Топ Rocher (46, Черный)",
+      "color": "Черный",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Брюки Perfect black",
+      "variant": "Брюки Perfect black (42)",
+      "color": "black",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Брюки Perfect black",
+      "variant": "Брюки Perfect black (44)",
+      "color": "black",
+      "size": "44",
+      "stock": 3
+    },
+    {
+      "product": "Брюки Perfect black",
+      "variant": "Брюки Perfect black (46)",
+      "color": "black",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Жакет Lime",
+      "variant": "Жакет Lime (46)",
+      "color": "Lime",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Блуза из шёлкового атласа",
+      "variant": "Блуза из шёлкового атласа (Black, XL)",
+      "color": "Black",
+      "size": "XL",
+      "stock": 1
+    },
+    {
+      "product": "Блуза из шёлкового атласа",
+      "variant": "Блуза из шёлкового атласа (White, XL)",
+      "color": "White",
+      "size": "XL",
+      "stock": 2
+    },
+    {
+      "product": "Джинсы Leo grey Wide Leg",
+      "variant": "Джинсы Leo grey Wide Leg (34)",
+      "color": "grey",
+      "size": "34",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Leo grey Wide Leg",
+      "variant": "Джинсы Leo grey Wide Leg (36)",
+      "color": "grey",
+      "size": "36",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив из трикотажа pink",
+      "variant": "Лонгслив из трикотажа  pink (One Size)",
+      "color": "pink",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив в рубчик из трикотажа pink",
+      "variant": "Лонгслив в рубчик из трикотажа pink (One Size)",
+      "color": "pink",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Лонгслив из трикотажа beige",
+      "variant": "Лонгслив из трикотажа  beige (46)",
+      "color": "beige",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Топ",
+      "variant": "Топ (Синий, 42)",
+      "color": "Синий",
+      "size": "42",
+      "stock": 2
+    },
+    {
+      "product": "Топ",
+      "variant": "Топ (Синий, 44)",
+      "color": "Синий",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Топ",
+      "variant": "Топ (Синий, 46)",
+      "color": "Синий",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Топ",
+      "variant": "Топ (Оранжевый, S)",
+      "color": "Оранжевый",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Пальто - пиджак Light Beige",
+      "variant": "Пальто - пиджак Light Beige (L)",
+      "color": "Beige",
+      "size": "L",
+      "stock": 0
+    },
+    {
+      "product": "Футболка Humorous",
+      "variant": "Футболка Humorous (Red, One Size)",
+      "color": "Red",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Костюм с прямыми брюками Olala",
+      "variant": "Костюм с прямыми брюками Olala (Beige, M)",
+      "color": "Beige",
+      "size": "M",
+      "stock": 0
+    },
+    {
+      "product": "Комплект 2-х предметный Cream ITCL",
+      "variant": "Комплект 2-х предметный Cream ITCL (44)",
+      "color": "Cream",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Комплект 2-х предметный Cream ITCL",
+      "variant": "Комплект 2-х предметный Cream ITCL (46)",
+      "color": "Cream",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Футболка JY",
+      "variant": "Футболка JY (Красный, One Size)",
+      "color": "Красный",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Футболка с воланами",
+      "variant": "Футболка с воланами (Белый, One Size)",
+      "color": "Белый",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Футболка Don’t give up",
+      "variant": "Футболка Don’t give up (Red, One Size)",
+      "color": "Red",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Комплект Garment",
+      "variant": "Комплект Garment (Pink, S)",
+      "color": "Pink",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Комплект Garment",
+      "variant": "Комплект Garment (Cream, XS)",
+      "color": "Cream",
+      "size": "XS",
+      "stock": 1
+    },
+    {
+      "product": "Укороченная футболка с контрастной надписью Paris black",
+      "variant": "Укороченная футболка с контрастной надписью Paris black (46)",
+      "color": "black",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Укороченная футболка с контрастной надписью Paris white",
+      "variant": "Укороченная футболка с контрастной надписью Paris white (42)",
+      "color": "white",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Укороченная футболка с контрастной надписью Paris white",
+      "variant": "Укороченная футболка с контрастной надписью Paris white (44)",
+      "color": "white",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Укороченная футболка с контрастной надписью Paris white",
+      "variant": "Укороченная футболка с контрастной надписью Paris white (46)",
+      "color": "white",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Свитшот укороченный из футера Red",
+      "variant": "Свитшот укороченный из футера Red (One Size)",
+      "color": "Red",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Брюки Beige",
+      "variant": "Брюки Beige (36)",
+      "color": "Beige",
+      "size": "36",
+      "stock": 1
+    },
+    {
+      "product": "Брюки Beige",
+      "variant": "Брюки Beige (38)",
+      "color": "Beige",
+      "size": "38",
+      "stock": 0
+    },
+    {
+      "product": "Брюки Beige",
+      "variant": "Брюки Beige (40)",
+      "color": "Beige",
+      "size": "40",
+      "stock": 1
+    },
+    {
+      "product": "Футболка с контрастной надписью La Vie",
+      "variant": "Футболка с контрастной надписью La Vie (Pink, One Size)",
+      "color": "Pink",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Футболка с контрастной надписью La Vie",
+      "variant": "Футболка с контрастной надписью La Vie (Red, One Size)",
+      "color": "Red",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (Beige, L)",
+      "color": "Beige",
+      "size": "L",
+      "stock": 2
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (White, L)",
+      "color": "White",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (Beige, M)",
+      "color": "Beige",
+      "size": "M",
+      "stock": 2
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (Beige, S)",
+      "color": "Beige",
+      "size": "S",
+      "stock": 2
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (Black, S)",
+      "color": "Black",
+      "size": "S",
+      "stock": 0
+    },
+    {
+      "product": "Топ CH",
+      "variant": "Топ CH (White, S)",
+      "color": "White",
+      "size": "S",
+      "stock": 4
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (White, M)",
+      "color": "White",
+      "size": "M",
+      "stock": 2
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (White, S)",
+      "color": "White",
+      "size": "S",
+      "stock": 2
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (Black, M)",
+      "color": "Black",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (Black, L)",
+      "color": "Black",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (Beige, M)",
+      "color": "Beige",
+      "size": "M",
+      "stock": 2
+    },
+    {
+      "product": "Топ с вырезом качели",
+      "variant": "Топ с вырезом качели (Beige, L)",
+      "color": "Beige",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер Strawberry",
+      "variant": "Джемпер Strawberry (Розовый, One Size)",
+      "color": "Розовый",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Жакет однобортный Grey",
+      "variant": "Жакет однобортный Grey (M)",
+      "color": "Grey",
+      "size": "M",
+      "stock": 0
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (Beige, 42)",
+      "color": "Beige",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (Beige, 44)",
+      "color": "Beige",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (Beige, 46)",
+      "color": "Beige",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (White, 46)",
+      "color": "White",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Футболка Premium LW",
+      "variant": "Футболка Premium LW (Black, S)",
+      "color": "Black",
+      "size": "S",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Black",
+      "variant": "Джинсы Black (36)",
+      "color": "Black",
+      "size": "36",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы Black",
+      "variant": "Джинсы Black (38)",
+      "color": "Black",
+      "size": "38",
+      "stock": 2
+    },
+    {
+      "product": "Водолазка из вискозы",
+      "variant": "Водолазка из вискозы (Burgundy, One Size)",
+      "color": "Burgundy",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (Beige, One Size)",
+      "color": "Beige",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (Burgundy, One Size)",
+      "color": "Burgundy",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Джемпер V из вискозы",
+      "variant": "Джемпер V из вискозы (White, One Size)",
+      "color": "White",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Брюки из вискозы StellaMc grey",
+      "variant": "Брюки из вискозы StellaMc grey (42)",
+      "color": "grey",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Брюки из вискозы StellaMc grey",
+      "variant": "Брюки из вискозы StellaMc grey (46)",
+      "color": "grey",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Брюки Black",
+      "variant": "Брюки  Black (36)",
+      "color": "Black",
+      "size": "36",
+      "stock": 2
+    },
+    {
+      "product": "Брюки Black",
+      "variant": "Брюки  Black (38)",
+      "color": "Black",
+      "size": "38",
+      "stock": 1
+    },
+    {
+      "product": "Платье из шерсти Loro Piana",
+      "variant": "Платье из шерсти Loro Piana (Black, One Size)",
+      "color": "Black",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Beige, 42)",
+      "color": "Beige",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Black, 42)",
+      "color": "Black",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Beige, 44)",
+      "color": "Beige",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Black, 44)",
+      "color": "Black",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Костюм из трикотажа с жилетом",
+      "variant": "Костюм из трикотажа с жилетом (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Костюм брюки и водолазка",
+      "variant": "Костюм брюки и водолазка (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Пальто - пиджак PFG grey",
+      "variant": "Пальто - пиджак PFG grey (44)",
+      "color": "grey",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Пальто - пиджак PFG grey",
+      "variant": "Пальто - пиджак PFG grey (48)",
+      "color": "grey",
+      "size": "48",
+      "stock": 0
+    },
+    {
+      "product": "Кардиган Heart",
+      "variant": "Кардиган Heart (Milk, One Size)",
+      "color": "Milk",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Брюки beige",
+      "variant": "Брюки beige (40)",
+      "color": "beige",
+      "size": "40",
+      "stock": 1
+    },
+    {
+      "product": "Брюки beige",
+      "variant": "Брюки beige (42)",
+      "color": "beige",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Комплект 2-ух предметный",
+      "variant": "Комплект 2-ух предметный (Beige, One Size)",
+      "color": "Beige",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Комплект 2-ух предметный",
+      "variant": "Комплект 2-ух предметный (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 2
+    },
+    {
+      "product": "Жилет ITCL JL 24 grey",
+      "variant": "Жилет ITCL JL 24 grey (42)",
+      "color": "grey",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Жилет ITCL JL 24 grey",
+      "variant": "Жилет ITCL JL 24 grey (44)",
+      "color": "grey",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Жилет ITCL JL 24 grey",
+      "variant": "Жилет ITCL JL 24 grey (46)",
+      "color": "grey",
+      "size": "46",
+      "stock": 0
+    },
+    {
+      "product": "Костюм юбка&джемпер Luna",
+      "variant": "Костюм юбка&джемпер Luna (Brown, One Size)",
+      "color": "Brown",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Mom Fit grey",
+      "variant": "Джинсы Mom Fit grey (38)",
+      "color": "grey",
+      "size": "38",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Mom Fit grey",
+      "variant": "Джинсы Mom Fit grey (40)",
+      "color": "grey",
+      "size": "40",
+      "stock": 1
+    },
+    {
+      "product": "Брюки / Юбка из вискозы Burgundy",
+      "variant": "Брюки / Юбка из вискозы Burgundy (Burgundy, 42)",
+      "color": "Burgundy",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Брюки / Юбка из вискозы Burgundy",
+      "variant": "Брюки / Юбка из вискозы Burgundy (Burgundy, 44)",
+      "color": "Burgundy",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Брюки / Юбка из вискозы Burgundy",
+      "variant": "Брюки / Юбка из вискозы Burgundy (Burgundy, 46)",
+      "color": "Burgundy",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Белый, 42)",
+      "color": "Белый",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Белый, 44)",
+      "color": "Белый",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Белый, 46)",
+      "color": "Белый",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Белый, 48)",
+      "color": "Белый",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Алый, 42)",
+      "color": "Алый",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Блуза Obsessed",
+      "variant": "Блуза Obsessed (Cream, 42)",
+      "color": "Cream",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Водолазка из вискозы",
+      "variant": "Водолазка из вискозы (Burgundy, One Size)",
+      "color": "Burgundy",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Кардиган Bordo Heart",
+      "variant": "Кардиган Bordo Heart (one size)",
+      "color": "Bordo",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Кардиган by M.R",
+      "variant": "Кардиган by M.R (Бежевый, One Size)",
+      "color": "Бежевый",
+      "size": "M",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы straight",
+      "variant": "Джинсы straight (Beige, 34)",
+      "color": "Beige",
+      "size": "34",
+      "stock": 1
+    },
+    {
+      "product": "Джинсы straight",
+      "variant": "Джинсы straight (Beige, 38)",
+      "color": "Beige",
+      "size": "38",
+      "stock": 0
+    },
+    {
+      "product": "Джинсы Cream",
+      "variant": "Джинсы Cream (42)",
+      "color": "Cream",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Платье BOHO из органического льна",
+      "variant": "Платье BOHO из органического льна (Хаки, one size)",
+      "color": "Хаки",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Платье BOHO из органического льна",
+      "variant": "Платье BOHO из органического льна (Желтый, one size)",
+      "color": "Желтый",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Платье BOHO из органического льна",
+      "variant": "Платье BOHO из органического льна (Розовый, one size)",
+      "color": "Розовый",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Платье Beige",
+      "variant": "Платье  Beige (XS)",
+      "color": "Beige",
+      "size": "XS",
+      "stock": 0
+    },
+    {
+      "product": "Платье Beige",
+      "variant": "Платье  Beige (S)",
+      "color": "Beige",
+      "size": "S",
+      "stock": 1
+    },
+    {
+      "product": "Платье WoW",
+      "variant": "Платье WoW (Beige, 44)",
+      "color": "Beige",
+      "size": "44",
+      "stock": 1
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Beige, M)",
+      "color": "Beige",
+      "size": "M",
+      "stock": 2
+    },
+    {
+      "product": "Платье в стиле Vintage",
+      "variant": "Платье в стиле Vintage (Black, M)",
+      "color": "Black",
+      "size": "M",
+      "stock": 2
+    },
+    {
+      "product": "Жилет в клетку",
+      "variant": "Жилет в клетку (Бежевый, 42)",
+      "color": "Бежевый",
+      "size": "42",
+      "stock": 0
+    },
+    {
+      "product": "Жилет в клетку",
+      "variant": "Жилет в клетку (Бежевый, 44)",
+      "color": "Бежевый",
+      "size": "44",
+      "stock": 0
+    },
+    {
+      "product": "Топ на завязках BELUCCI",
+      "variant": "Топ на завязках BELUCCI (Черный, 46)",
+      "color": "Черный",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Топ на завязках BELUCCI",
+      "variant": "Топ на завязках BELUCCI (Черный, 48)",
+      "color": "Черный",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Жилет пиджачного кроя",
+      "variant": "Жилет пиджачного кроя (Черный, 46)",
+      "color": "Черный",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Жилет пиджачного кроя",
+      "variant": "Жилет пиджачного кроя (Бежевый, 46)",
+      "color": "Бежевый",
+      "size": "46",
+      "stock": 2
+    },
+    {
+      "product": "Жилет пиджачного кроя",
+      "variant": "Жилет пиджачного кроя (Бежевый, 48)",
+      "color": "Бежевый",
+      "size": "48",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив",
+      "variant": "Лонгслив (Milk, OS)",
+      "color": "Milk",
+      "size": "OS",
+      "stock": 0
+    },
+    {
+      "product": "Лонгслив",
+      "variant": "Лонгслив (Grey, OS)",
+      "color": "Grey",
+      "size": "OS",
+      "stock": 0
+    },
+    {
+      "product": "Платье с открытой спиной в полоску",
+      "variant": "Платье с открытой спиной в полоску (Синий, One size)",
+      "color": "Синий",
+      "size": "One size",
+      "stock": 0
+    },
+    {
+      "product": "Платье Yomistudio",
+      "variant": "Платье Yomistudio (Голубой, One size)",
+      "color": "Голубой",
+      "size": "One size",
+      "stock": 1
+    },
+    {
+      "product": "Платье Yomistudio",
+      "variant": "Платье Yomistudio (Зеленый, One size)",
+      "color": "Зеленый",
+      "size": "One size",
+      "stock": 0
+    },
+    {
+      "product": "Платье Roskosh",
+      "variant": "Платье Roskosh (Бежевый, one size)",
+      "color": "Бежевый",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Платье Roskosh",
+      "variant": "Платье Roskosh (Черный, one size)",
+      "color": "Черный",
+      "size": "one size",
+      "stock": 1
+    },
+    {
+      "product": "Лонгслив vsc",
+      "variant": "Лонгслив vsc (Beige, os)",
+      "color": "Beige",
+      "size": "os",
+      "stock": 0
+    },
+    {
+      "product": "Джемпер с воротником поло Dark green",
+      "variant": "Джемпер с воротником поло Dark green (One Size)",
+      "color": "green",
+      "size": "One Size",
+      "stock": 0
+    },
+    {
+      "product": "Джемпер mini",
+      "variant": "Джемпер mini (Grey, One Size)",
+      "color": "Grey",
+      "size": "One Size",
+      "stock": 1
+    },
+    {
+      "product": "Брюки женские Lime",
+      "variant": "Брюки женские Lime (46)",
+      "color": "Lime",
+      "size": "46",
+      "stock": 1
+    },
+    {
+      "product": "Брюки из льна Burgundy",
+      "variant": "Брюки из льна Burgundy (OS)",
+      "color": "Burgundy",
+      "size": "OS",
+      "stock": 1
+    },
+    {
+      "product": "Платье Fame",
+      "variant": "Платье Fame (Beige, L)",
+      "color": "Beige",
+      "size": "L",
+      "stock": 1
+    },
+    {
+      "product": "Комплект Garment",
+      "variant": "Комплект Garment (Бежевый, 42)",
+      "color": "Бежевый",
+      "size": "42",
+      "stock": 1
+    },
+    {
+      "product": "Костюм Relax Fit из легкого футера",
+      "variant": "Костюм Relax Fit из легкого футера (Red, one size)",
+      "color": "Red",
+      "size": "one size",
+      "stock": 2
+    },
+    {
+      "product": "Костюм Relax Fit из легкого футера",
+      "variant": "Костюм Relax Fit из легкого футера (Grey, one size)",
+      "color": "Grey",
+      "size": "one size",
+      "stock": 3
+    },
+    {
+      "product": "Костюм Relax Fit из легкого футера",
+      "variant": "Костюм Relax Fit из легкого футера (Pink, one size)",
+      "color": "Pink",
+      "size": "one size",
+      "stock": 0
+    },
+    {
+      "product": "Пальто на запах",
+      "variant": "Пальто на запах (Brown, 48)",
+      "color": "Brown",
+      "size": "48",
+      "stock": 0
+    }
+  ]
+}
